@@ -123,7 +123,7 @@ export default function Home() {
 
               {/* Email */}
               <a
-                href="mailto:JustworkedByOj@outlook.com"
+                href="mailto:orlandojr058@gmail.com"
                 className="inline-flex h-8 items-center rounded-lg border border-stone-200 dark:border-stone-800 bg-white/40 dark:bg-stone-900/40 px-3.5 text-xs font-semibold text-stone-700 dark:text-stone-300 hover:border-stone-400 dark:hover:border-stone-600 hover:bg-white/80 dark:hover:bg-stone-900/80 transition-all gap-1.5"
               >
                 <Mail className="h-3.5 w-3.5" />
