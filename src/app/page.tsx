@@ -16,6 +16,17 @@ export default function Home() {
   const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
+  const [copiedEmail, setCopiedEmail] = useState(false);
+
+  const handleEmailClick = () => {
+    try {
+      navigator.clipboard.writeText("orlandojr058@gmail.com");
+      setCopiedEmail(true);
+      setTimeout(() => setCopiedEmail(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy email:", err);
+    }
+  };
 
   useEffect(() => {
     const handle = requestAnimationFrame(() => {
@@ -136,7 +147,7 @@ export default function Home() {
               
               {/* Schedule meeting */}
               <a
-                href="https://calendar.google.com/"
+                href="https://calendar.google.com/calendar/render?action=TEMPLATE&add=orlandojr058@gmail.com&text=Meeting%20with%20Orlando%20Fornolles%20Jr."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-8 items-center rounded-lg bg-[var(--accent)] hover:bg-[var(--accent-hover)] px-3.5 text-xs font-semibold text-white dark:text-stone-950 transition-all duration-300 gap-1.5 shadow-[0_1px_2px_rgba(0,0,0,0.05)] cursor-pointer"
@@ -148,10 +159,38 @@ export default function Home() {
               {/* Email */}
               <a
                 href="mailto:orlandojr058@gmail.com"
-                className="inline-flex h-8 items-center rounded-lg border border-stone-200 dark:border-stone-800 bg-white/40 dark:bg-stone-900/40 px-3.5 text-xs font-semibold text-stone-700 dark:text-stone-300 hover:border-stone-400 dark:hover:border-stone-600 hover:bg-white/80 dark:hover:bg-stone-900/80 transition-all gap-1.5"
+                onClick={handleEmailClick}
+                className="inline-flex h-8 w-[130px] justify-center items-center rounded-lg border border-stone-200 dark:border-stone-800 bg-white/40 dark:bg-stone-900/40 text-xs font-semibold text-stone-700 dark:text-stone-300 hover:border-stone-400 dark:hover:border-stone-600 hover:bg-white/80 dark:hover:bg-stone-900/80 transition-all cursor-pointer select-none"
               >
-                <Mail className="h-3.5 w-3.5" />
-                <span>Send Email</span>
+                <AnimatePresence mode="wait" initial={false}>
+                  {copiedEmail ? (
+                    <motion.span
+                      key="copied"
+                      initial={{ opacity: 0, y: -4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 4 }}
+                      transition={{ duration: 0.15 }}
+                      className="flex items-center gap-1.5 text-emerald-700 dark:text-emerald-400"
+                    >
+                      <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Email Copied!</span>
+                    </motion.span>
+                  ) : (
+                    <motion.span
+                      key="send"
+                      initial={{ opacity: 0, y: -4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 4 }}
+                      transition={{ duration: 0.15 }}
+                      className="flex items-center gap-1.5"
+                    >
+                      <Mail className="h-3.5 w-3.5" />
+                      <span>Send Email</span>
+                    </motion.span>
+                  )}
+                </AnimatePresence>
               </a>
 
 
