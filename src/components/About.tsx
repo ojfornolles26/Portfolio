@@ -19,7 +19,7 @@ export function AboutCard() {
           <p>
             As COO at SWUdevs, I coordinate operations and technical initiatives for a community of over 150 members. I help facilitate curriculum-based workshops focused on university courses, hackathon preparation, and developer tools, while leading outreach efforts that bridge academic theory with real-world software production.
           </p>
-          <p className="italic text-stone-500 dark:text-stone-400">
+          <p className="font-serif italic text-stone-600 dark:text-stone-300 text-[15px] leading-relaxed">
             Recently, I have been exploring the practical applications of artificial intelligence, particularly agentic workflows and automation, to create smarter and more efficient development pipelines. My interests lie at the intersection of software engineering and AI, from integrating large language models to streamline workflows to building more adaptive and interactive user experiences.
           </p>
         </div>

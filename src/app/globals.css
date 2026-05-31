@@ -18,8 +18,8 @@
   --foreground: #292524; /* Softer stone-800 for less contrast glare */
   --muted: #78716c; /* stone-500 */
   --muted-light: #e4dfd5; /* Softer cream-stone-200 */
-  --accent: #a24823; /* Muted Warm Terracotta Sienna as 10% Accent */
-  --accent-hover: #853615; /* Earthy sienna hover color */
+  --accent: #2e5a44; /* Premium Deep Forest Green as 10% Accent */
+  --accent-hover: #1e3d2e; /* Deep forest green hover color */
   --border: #e4dfd5; /* Softer blending borders */
   --card-bg: transparent; /* Flat transparent cards */
   --scroll-thumb: #d2cbbe; /* Soft paper-matching scroll thumb */
@@ -30,8 +30,8 @@
   --foreground: #f5f5f4; /* stone-100 */
   --muted: #a8a29e; /* stone-400 */
   --muted-light: #1c1917; /* stone-900 */
-  --accent: #f27238; /* Premium Glowing Copper as 10% Accent */
-  --accent-hover: #fb923c; /* Accent hover color */
+  --accent: #34d399; /* Premium Glowing Emerald/Sage as 10% Accent */
+  --accent-hover: #10b981; /* Accent hover color */
   --border: #292524; /* stone-800 for subtle borders */
   --card-bg: transparent; /* Flat transparent cards */
   --scroll-thumb: #292524; /* stone-800 */
@@ -121,11 +121,11 @@ body {
 
 /* Custom Selection Highlight Styles */
 ::selection {
-  background-color: rgba(162, 72, 35, 0.15); /* a24823 with 15% opacity */
+  background-color: rgba(46, 90, 68, 0.15); /* #2e5a44 with 15% opacity */
   color: var(--accent);
 }
 
 .dark ::selection {
-  background-color: rgba(242, 114, 56, 0.2); /* f27238 with 20% opacity */
+  background-color: rgba(52, 211, 153, 0.2); /* #34d399 with 20% opacity */
   color: var(--accent);
 }

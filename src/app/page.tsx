@@ -102,7 +102,7 @@ export default function Home() {
                 <svg
                   viewBox="0 0 22 22"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-4.5 w-4.5 text-[var(--accent)] flex-shrink-0 transition-colors duration-300 cursor-pointer select-none"
+                  className="h-4.5 w-4.5 text-sky-600 dark:text-sky-400 flex-shrink-0 transition-colors duration-300 cursor-pointer select-none"
                   aria-label="Verified user"
                 >
                   <path
@@ -137,7 +137,7 @@ export default function Home() {
 
             {/* Sub-headline */}
             <div className="pt-0.5">
-              <p className="text-sm font-serif italic text-[var(--accent)] font-semibold transition-colors duration-300">
+              <p className="text-xs md:text-sm font-sans font-medium tracking-wide text-stone-500 dark:text-stone-400 transition-colors duration-300">
                 Front-End Engineer & Chief Operating Officer
               </p>
             </div>

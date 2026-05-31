@@ -97,7 +97,7 @@ export default function Projects() {
               {/* Metrics */}
               <div className="mb-3.5 space-y-0.5 border-t border-stone-200/60 dark:border-stone-800/60 pt-2 flex flex-col gap-0.5">
                 {project.metrics.map((metric, mIdx) => (
-                  <div key={mIdx} className="flex items-center gap-1.5 text-[10px] font-medium text-stone-600 dark:text-stone-300">
+                  <div key={mIdx} className="flex items-center gap-1.5 text-[11px] font-medium text-stone-600 dark:text-stone-300">
                     <span className="h-1 w-1 rounded-full bg-stone-600 dark:bg-stone-300" />
                     {metric}
                   </div>
@@ -110,7 +110,7 @@ export default function Projects() {
               {project.tech.map((t) => (
                 <span
                   key={t}
-                  className="px-1.5 py-0.5 text-[9px] rounded bg-transparent border border-stone-200/60 dark:border-stone-800/60 text-stone-500 dark:text-stone-400 font-medium"
+                  className="px-1.5 py-0.5 text-[10px] rounded bg-transparent border border-stone-200/60 dark:border-stone-800/60 text-stone-500 dark:text-stone-400 font-medium"
                 >
                   {t}
                 </span>
