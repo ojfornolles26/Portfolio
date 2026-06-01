@@ -1,8 +1,11 @@
 services:
   - type: static
-    name: oj-portfolio
+    name: orlandofornollesjr
     buildCommand: npm run build
     publishPath: out
+    envVars:
+      - key: NODE_VERSION
+        value: 20.18.0
     headers:
       - path: /*
         name: Content-Security-Policy

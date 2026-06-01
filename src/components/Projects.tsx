@@ -20,7 +20,7 @@ const PROJECTS: Project[] = [
     description:
       "A premium, browser-native document workspace that runs 100% locally on your device. Allows users to privately convert batches of images into PDF documents and extract structured text or formatted Markdown from PDFs.",
     tech: ["React", "Vite", "TypeScript", "Tailwind CSS", "jsPDF", "PDF.js"],
-    github: "https://github.com/Ojworks/Filo",
+    github: "https://github.com/orlandofornollesjr/Filo",
     live: "https://filo-5iot.onrender.com/",
     metrics: ["100% Client-Side Processing", "Zero-Server PDF & Image Conversion"],
   },
@@ -30,7 +30,7 @@ const PROJECTS: Project[] = [
     description:
       "A cross-platform duty hour tracker for students and interns to log time against a monthly goal. Features a live timer, manual entry, per-day calendar logging with notes, multi-session support, a 7-day analytics chart, and smart daily/weekly catch-up guidance.",
     tech: ["React Native", "Expo", "Zustand", "Expo Router", "NativeWind", "Gifted Charts"],
-    github: "https://github.com/Ojworks/Trae",
+    github: "https://github.com/orlandofornollesjr/Trae",
     live: "",
     metrics: ["Multi-Session & Monthly Archive", "Live Timer + Manual Logging"],
   },
