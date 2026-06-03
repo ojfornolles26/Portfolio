@@ -38,7 +38,7 @@ const PROJECTS: Project[] = [
     title: "Signity",
     category: "Web App / Productivity",
     description:
-      "A premium, client-side signature whiteboard that allows users to draw, auto-crop, and download high-fidelity transparent signatures. Features high-precision stroke smoothing and instant clipboard copying.",
+      "A premium, client-side signature whiteboard that allows users to draw, auto-crop, and download beautiful transparent signatures. Features high-precision stroke smoothing and instant clipboard copying.",
     tech: ["React", "Vite", "TypeScript", "Tailwind CSS", "Motion", "HTML5 Canvas"],
     github: "https://github.com/ojfornolles26/Signity",
     live: "https://signity-b8l8.onrender.com/",
