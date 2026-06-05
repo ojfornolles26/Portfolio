@@ -138,7 +138,7 @@ export default function Home() {
             {/* Sub-headline */}
             <div className="pt-0.5">
               <p className="text-xs md:text-sm font-sans font-medium tracking-wide text-stone-500 dark:text-stone-400 transition-colors duration-300">
-                Front-End Engineer & Chief Operating Officer
+                Full-Stack Developer (Front-End Focused) & Chief Operating Officer
               </p>
             </div>
 
