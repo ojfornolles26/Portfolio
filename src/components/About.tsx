@@ -14,13 +14,13 @@ export function AboutCard() {
         </div>
         <div className="space-y-3.5 text-sm text-stone-600 dark:text-stone-300 leading-relaxed font-sans">
           <p className="font-medium text-stone-900 dark:text-stone-100">
-            I am a Front-End Engineer and Chief Operating Officer specializing in building cross-platform web and mobile applications using React, React Native, and Flutter. Passionate about continuous growth and learning, I focus on mastering modern development workflows and expanding my technical expertise.
+            Full-stack developer with a front-end specialization, and proven leadership as COO of SWUdevs, managing operations for a 150+ member tech community. Self-taught builder with deep expertise in React, TypeScript, and React Native, with deployed projects in privacy-first document processing, mobile applications, and AI-enhanced tools.
           </p>
           <p>
-            As COO at SWUdevs, I coordinate operations and technical initiatives for a community of over 150 members. I help facilitate curriculum-based workshops focused on university courses, hackathon preparation, and developer tools, while leading outreach efforts that bridge academic theory with real-world software production.
+            As COO at SWUdevs, I coordinate operations and technical initiatives for a community of over 150 members. I facilitate hands-on workshops covering Python, Java, Git, HTML/CSS, JavaScript, Web Development, UI/UX, Prompt Engineering, and AI Integration—supporting students in building practical skills for hackathons, technical projects, and real-world software development.
           </p>
           <p className="font-serif italic text-stone-600 dark:text-stone-300 text-[15px] leading-relaxed">
-            Recently, I have been exploring the practical applications of artificial intelligence, particularly agentic workflows and automation, to create smarter and more efficient development pipelines. My interests lie at the intersection of software engineering and AI, from integrating large language models to streamline workflows to building more adaptive and interactive user experiences.
+            My work emphasizes privacy-first, local-first architecture by processing sensitive data entirely in-browser through client-side rendering. My deployed applications—covering document processing, mobile time tracking, and digital signatures—prioritize user privacy by ensuring data never leaves the device.
           </p>
         </div>
       </div>
@@ -37,7 +37,7 @@ const TECH_CATEGORIES = [
   {
     name: "Backend & Serverless",
     icon: Cpu,
-    skills: ["Node.js", "Firebase", "Supabase", "REST APIs", "Cloudflare Workers", "WebAssembly"],
+    skills: ["Node.js", "Firebase", "Supabase", "REST APIs", "Cloudflare Workers"],
   },
   {
     name: "AI & Emerging Tech",

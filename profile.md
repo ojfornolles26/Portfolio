@@ -15,7 +15,7 @@
 
   <!-- Role / Sub-headline -->
   <p align="center" style="font-size: 1.15em; color: #8c7a6b; font-style: italic; margin-top: 10px;">
-    Front-End Engineer & Chief Operating Officer
+    Full-Stack Developer (Front-End Focused) & Chief Operating Officer
   </p>
 
   <!-- Navigation / Links -->

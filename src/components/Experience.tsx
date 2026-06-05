@@ -14,7 +14,7 @@ const EXPERIENCE_ITEMS: ExperienceItem[] = [
     period: "2026 – Present",
     bullets: [
       "Coordinating operations and workflows across technology, creatives, programs, marketing, and finance for a 150+ member community.",
-      "Facilitating curriculum-based workshops focused on university courses, hackathon preparation, and developer tools.",
+      "Facilitate hands-on workshops covering Python, Java, Git, HTML/CSS, JavaScript, Web Development, UI/UX, Prompt Engineering, and AI Integration, supporting student skill-building across the full development lifecycle.",
     ],
   },
   {

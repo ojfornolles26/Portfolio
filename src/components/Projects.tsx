@@ -18,7 +18,7 @@ const PROJECTS: Project[] = [
     title: "Filo",
     category: "Web App / Productivity",
     description:
-      "A premium, browser-native document workspace that runs 100% locally on your device. Allows users to privately convert batches of images into PDF documents and extract structured text or formatted Markdown from PDFs.",
+      "Browser-native document workspace for batch image-to-PDF conversion and PDF text extraction with structured Markdown output. Processes files entirely in-browser using WebAssembly for maximum privacy—no server uploads required.",
     tech: ["React", "Vite", "TypeScript", "Tailwind CSS", "jsPDF", "PDF.js"],
     github: "https://github.com/orlandofornollesjr/Filo",
     live: "https://filo-5iot.onrender.com/",
@@ -28,7 +28,7 @@ const PROJECTS: Project[] = [
     title: "Trae",
     category: "Mobile App / Productivity",
     description:
-      "A cross-platform duty hour tracker for students and interns to log time against a monthly goal. Features a live timer, manual entry, per-day calendar logging with notes, multi-session support, a 7-day analytics chart, and smart daily/weekly catch-up guidance.",
+      "Cross-platform mobile app for tracking duty hours against monthly goals with real-time progress tracking. Built with Expo for iOS and Android, helping students and interns log time, review analytics, and stay on pace with their requirements.",
     tech: ["React Native", "Expo", "Zustand", "Expo Router", "NativeWind", "Gifted Charts"],
     github: "https://github.com/orlandofornollesjr/Trae",
     live: "",
@@ -38,7 +38,7 @@ const PROJECTS: Project[] = [
     title: "Signity",
     category: "Web App / Productivity",
     description:
-      "A premium, client-side signature whiteboard that allows users to draw, auto-crop, and download beautiful transparent signatures. Features high-precision stroke smoothing and instant clipboard copying.",
+      "Privacy-first digital signature creator with high-precision line smoothing and real-time canvas rendering. Exports auto-cropped transparent PNG files ready for professional documents. All processing runs locally—signature data never leaves the device.",
     tech: ["React", "Vite", "TypeScript", "Tailwind CSS", "Motion", "HTML5 Canvas"],
     github: "https://github.com/ojfornolles26/Signity",
     live: "https://signity-b8l8.onrender.com/",
