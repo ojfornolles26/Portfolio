@@ -2,14 +2,7 @@
 
 import { Award, ArrowUpRight } from "lucide-react";
 
-interface Certification {
-  name: string;
-  issuer: string;
-  year: string;
-  link: string;
-}
-
-const CERTS: Certification[] = [
+const CERTS = [
   {
     name: "Retrieval-Augmented Generation for Enhanced AI Outputs",
     issuer: "IBM SkillsBuild",

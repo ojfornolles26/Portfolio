@@ -15,7 +15,7 @@
 
   <!-- Role / Sub-headline -->
   <p align="center" style="font-size: 1.15em; color: #8c7a6b; font-style: italic; margin-top: 10px;">
-    Full-Stack Developer (Front-End Focused) & Chief Operating Officer
+    BS IT Student | Front-End Developer | COO at SWUdevs
   </p>
 
   <!-- Navigation / Links -->

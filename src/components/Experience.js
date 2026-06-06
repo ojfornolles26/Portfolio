@@ -1,19 +1,12 @@
 "use client";
 
-interface ExperienceItem {
-  role: string;
-  company: string;
-  period: string;
-  bullets: string[];
-}
-
-const EXPERIENCE_ITEMS: ExperienceItem[] = [
+const EXPERIENCE_ITEMS = [
   {
     role: "Chief Operating Officer",
     company: "SWUdevs",
-    period: "2026 – Present",
+    period: "Jan 2026 – Present",
     bullets: [
-      "Coordinating operations and workflows across technology, creatives, programs, marketing, and finance for a 150+ member community.",
+      "Coordinate operations and workflows across technology, creatives, programs, marketing, and finance for a 150+ member community.",
       "Facilitate hands-on workshops covering Python, Java, Git, HTML/CSS, JavaScript, Web Development, UI/UX, Prompt Engineering, and AI Integration, supporting student skill-building across the full development lifecycle.",
     ],
   },
@@ -102,7 +95,7 @@ export function EducationCard() {
             </p>
           </div>
           <p className="text-xs text-stone-600 dark:text-stone-300 leading-relaxed pt-2.5 border-t border-stone-200/60 dark:border-stone-800/60">
-            Focused on systems development, database engineering, and software architectures.
+            Relevant coursework: Web Development, Database Management Systems, Networking, Systems Integration, and Software Architectures.
           </p>
         </div>
       </div>

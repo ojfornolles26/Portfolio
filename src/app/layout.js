@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Inter, Newsreader } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -16,17 +15,13 @@ const newsreader = Newsreader({
   display: "swap",
 });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Orlando Fornolles Jr.",
   description: "An editorial-inspired, minimalist digital resume and portfolio for Orlando Fornolles Jr., showcasing clean software engineering, local-first web applications, and AI integration workflows.",
-  keywords: ["Orlando Fornolles Jr.", "Full-Stack Developer", "Front-End Developer", "SWUdevs COO", "Portfolio", "Minimalist CV", "Cebu City", "React", "TypeScript", "AI Engineering"],
+  keywords: ["Orlando Fornolles Jr.", "Full-Stack Developer", "Front-End Developer", "SWUdevs COO", "Portfolio", "Minimalist CV", "Cebu City", "React", "JavaScript", "AI Engineering"],
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }) {
   return (
     <html
       lang="en"

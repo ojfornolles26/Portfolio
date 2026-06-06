@@ -1,6 +1,6 @@
 import React from "react";
 
-export function Github({ className = "h-4 w-4" }: { className?: string }) {
+export function Github({ className = "h-4 w-4" }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +20,7 @@ export function Github({ className = "h-4 w-4" }: { className?: string }) {
   );
 }
 
-export function Linkedin({ className = "h-4 w-4" }: { className?: string }) {
+export function Linkedin({ className = "h-4 w-4" }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +41,7 @@ export function Linkedin({ className = "h-4 w-4" }: { className?: string }) {
   );
 }
 
-export function Twitter({ className = "h-4 w-4" }: { className?: string }) {
+export function Twitter({ className = "h-4 w-4" }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

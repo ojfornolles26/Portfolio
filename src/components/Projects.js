@@ -3,46 +3,36 @@
 import { ExternalLink } from "lucide-react";
 import { Github } from "./icons";
 
-interface Project {
-  title: string;
-  category: string;
-  description: string;
-  tech: string[];
-  github?: string;
-  live?: string;
-  metrics: string[];
-}
-
-const PROJECTS: Project[] = [
+const PROJECTS = [
   {
     title: "Filo",
     category: "Web App / Productivity",
     description:
-      "Browser-native document workspace for batch image-to-PDF conversion and PDF text extraction with structured Markdown output. Processes files entirely in-browser using WebAssembly for maximum privacy—no server uploads required.",
-    tech: ["React", "Vite", "TypeScript", "Tailwind CSS", "jsPDF", "PDF.js"],
-    github: "https://github.com/orlandofornollesjr/Filo",
+      "Browser-native document workspace for batch image-to-PDF conversion and PDF text extraction with structured Markdown output. Processes files entirely client-side for maximum privacy, with no server uploads required.",
+    tech: ["React", "Vite", "JavaScript", "Tailwind CSS", "jsPDF", "PDF.js"],
+    github: "https://github.com/ojfornolles26/Filo",
     live: "https://filo-5iot.onrender.com/",
     metrics: ["100% Client-Side Processing", "Zero-Server PDF & Image Conversion"],
-  },
-  {
-    title: "Trae",
-    category: "Mobile App / Productivity",
-    description:
-      "Cross-platform mobile app for tracking duty hours against monthly goals with real-time progress tracking. Built with Expo for iOS and Android, helping students and interns log time, review analytics, and stay on pace with their requirements.",
-    tech: ["React Native", "Expo", "Zustand", "Expo Router", "NativeWind", "Gifted Charts"],
-    github: "https://github.com/orlandofornollesjr/Trae",
-    live: "",
-    metrics: ["Multi-Session & Monthly Archive", "Live Timer + Manual Logging"],
   },
   {
     title: "Signity",
     category: "Web App / Productivity",
     description:
-      "Privacy-first digital signature creator with high-precision line smoothing and real-time canvas rendering. Exports auto-cropped transparent PNG files ready for professional documents. All processing runs locally—signature data never leaves the device.",
-    tech: ["React", "Vite", "TypeScript", "Tailwind CSS", "Motion", "HTML5 Canvas"],
+      "Privacy-first digital signature creator with high-precision line smoothing and real-time canvas rendering. Exports auto-cropped transparent PNG files ready for professional documents. All processing runs locally, ensuring signature data never leaves the device.",
+    tech: ["React", "Vite", "JavaScript", "Tailwind CSS", "Motion", "HTML5 Canvas"],
     github: "https://github.com/ojfornolles26/Signity",
     live: "https://signity-b8l8.onrender.com/",
     metrics: ["100% Private & Client-Side", "Auto-Cropped Transparent PNG"],
+  },
+  {
+    title: "Portfolio",
+    category: "Web App / Portfolio",
+    description:
+      "Editorial-inspired, minimalist digital resume and portfolio showcasing clean software engineering, local-first web applications, and AI integration workflows. Features fluid typography, seamless light/dark theme transition, and static optimization.",
+    tech: ["React", "Next.js", "JavaScript", "Tailwind CSS", "Motion", "lucide-react"],
+    github: "https://github.com/ojfornolles26/Portfolio",
+    live: "https://orlandofornollesjr.onrender.com/",
+    metrics: ["Editorial-inspired typography", "Static Page Generation"],
   },
 ];
 
@@ -60,7 +50,11 @@ export default function Projects() {
         {PROJECTS.map((project, idx) => (
           <div
             key={idx}
-            className="flex flex-col justify-between p-3.5 rounded-lg bg-transparent border border-stone-200/60 dark:border-stone-800/60 transition-all duration-300 hover:border-stone-400 dark:hover:border-stone-700 hover:shadow-[0_2px_8px_rgba(0,0,0,0.015)]"
+            className={`flex flex-col justify-between p-3.5 rounded-lg bg-transparent border border-stone-200/60 dark:border-stone-800/60 transition-all duration-300 hover:border-stone-400 dark:hover:border-stone-700 hover:shadow-[0_2px_8px_rgba(0,0,0,0.015)] ${
+              idx === PROJECTS.length - 1 && PROJECTS.length % 2 !== 0
+                ? "sm:col-span-2"
+                : ""
+            }`}
           >
             <div>
               {/* Header: Category & Actions */}

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useTheme } from "next-themes";
 import { AnimatePresence, motion } from "framer-motion";
 import { Calendar, Mail, MapPin, Sun, Moon } from "lucide-react";
+import { Github, Linkedin } from "@/components/icons";
 
 // Components
 import { AboutCard, TechStackCard } from "@/components/About";
@@ -138,7 +139,7 @@ export default function Home() {
             {/* Sub-headline */}
             <div className="pt-0.5">
               <p className="text-xs md:text-sm font-sans font-medium tracking-wide text-stone-500 dark:text-stone-400 transition-colors duration-300">
-                Full-Stack Developer (Front-End Focused) & Chief Operating Officer
+                BS IT Student | Front-End Developer | COO at SWUdevs
               </p>
             </div>
 
@@ -191,6 +192,28 @@ export default function Home() {
                     </motion.span>
                   )}
                 </AnimatePresence>
+              </a>
+
+              {/* LinkedIn */}
+              <a
+                href="https://www.linkedin.com/in/ojfornolles26"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-stone-200 dark:border-stone-800 bg-white/40 dark:bg-stone-900/40 text-stone-700 dark:text-stone-300 hover:border-stone-400 dark:hover:border-stone-600 hover:bg-white/80 dark:hover:bg-stone-900/80 transition-all cursor-pointer"
+                aria-label="LinkedIn Profile"
+              >
+                <Linkedin className="h-3.5 w-3.5" />
+              </a>
+
+              {/* GitHub */}
+              <a
+                href="https://github.com/ojfornolles26"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-stone-200 dark:border-stone-800 bg-white/40 dark:bg-stone-900/40 text-stone-700 dark:text-stone-300 hover:border-stone-400 dark:hover:border-stone-600 hover:bg-white/80 dark:hover:bg-stone-900/80 transition-all cursor-pointer"
+                aria-label="GitHub Profile"
+              >
+                <Github className="h-3.5 w-3.5" />
               </a>
 
 

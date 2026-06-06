@@ -14,13 +14,13 @@ export function AboutCard() {
         </div>
         <div className="space-y-3.5 text-sm text-stone-600 dark:text-stone-300 leading-relaxed font-sans">
           <p className="font-medium text-stone-900 dark:text-stone-100">
-            Full-stack developer with a front-end specialization, and proven leadership as COO of SWUdevs, managing operations for a 150+ member tech community. Self-taught builder with deep expertise in React, TypeScript, and React Native, with deployed projects in privacy-first document processing, mobile applications, and AI-enhanced tools.
+            3rd-year BS IT student specializing in front-end development (React & JavaScript) and seeking an internship. Proven leader as COO of SWUdevs, managing operations for a 150+ member tech community, with deployed projects in privacy-first document workspaces, digital signatures, and responsive portfolios.
           </p>
           <p>
-            As COO at SWUdevs, I coordinate operations and technical initiatives for a community of over 150 members. I facilitate hands-on workshops covering Python, Java, Git, HTML/CSS, JavaScript, Web Development, UI/UX, Prompt Engineering, and AI Integration—supporting students in building practical skills for hackathons, technical projects, and real-world software development.
+            As COO at SWUdevs, I coordinate operations and technical initiatives for a community of over 150 members. I facilitate hands-on workshops covering Python, Java, Git, HTML/CSS, JavaScript, Web Development, UI/UX, Prompt Engineering, and AI Integration, helping students build practical skills for hackathons, technical projects, and real-world software development.
           </p>
           <p className="font-serif italic text-stone-600 dark:text-stone-300 text-[15px] leading-relaxed">
-            My work emphasizes privacy-first, local-first architecture by processing sensitive data entirely in-browser through client-side rendering. My deployed applications—covering document processing, mobile time tracking, and digital signatures—prioritize user privacy by ensuring data never leaves the device.
+            My applications are designed with user privacy at the core. By processing all data directly in the browser, sensitive information such as documents and signatures never leaves the device.
           </p>
         </div>
       </div>
@@ -32,7 +32,7 @@ const TECH_CATEGORIES = [
   {
     name: "Frontend & Mobile",
     icon: Laptop,
-    skills: ["React.js", "TypeScript", "React Native", "Flutter", "Dart", "Tailwind CSS"],
+    skills: ["React", "JavaScript", "HTML/CSS", "Tailwind CSS", "Flutter (Foundational)", "Dart (Foundational)"],
   },
   {
     name: "Backend & Serverless",
@@ -47,7 +47,7 @@ const TECH_CATEGORIES = [
   {
     name: "Developer Tools",
     icon: Wrench,
-    skills: ["Git/GitHub", "VS Code", "Expo"],
+    skills: ["Git/GitHub", "VS Code", "Vite"],
   },
 ];
 
