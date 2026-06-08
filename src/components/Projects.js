@@ -5,6 +5,15 @@ import { Github } from "./icons";
 
 const PROJECTS = [
   {
+    title: "Embraze",
+    category: "Web App / Community Safety",
+    description:
+      "Community-driven safety and hazard reporting platform featuring an interactive map of Cebu City. Enables residents to report localized hazards with auto-expiry, upvote active issues to verify validity, and dispute inaccurate entries.",
+    tech: ["React", "Vite", "JavaScript", "Tailwind CSS", "Leaflet", "Lucide React"],
+    github: "https://github.com/ojfornolles26/Embraze",
+    metrics: ["Interactive Leaflet Map", "Community Verification System"],
+  },
+  {
     title: "Filo",
     category: "Web App / Productivity",
     description:

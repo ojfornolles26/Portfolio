@@ -15,7 +15,7 @@
 
   <!-- Role / Sub-headline -->
   <p align="center" style="font-size: 1.15em; color: #8c7a6b; font-style: italic; margin-top: 10px;">
-    BS IT Student | Front-End Developer | COO at SWUdevs
+    Front-End AI Engineer Intern @ FlyRank AI | COO @ SWUdevs
   </p>
 
   <!-- Navigation / Links -->

@@ -2,6 +2,15 @@
 
 const EXPERIENCE_ITEMS = [
   {
+    role: "Front-End AI Engineer Intern",
+    company: "FlyRank AI",
+    period: "Jun 2026 – Present",
+    bullets: [
+      "Integrate generative AI capabilities into front-end workflows to build intelligent, responsive, and user-centric features.",
+      "Collaborate on development of performant web applications using React, JavaScript, and modern front-end build tools.",
+    ],
+  },
+  {
     role: "Chief Operating Officer",
     company: "SWUdevs",
     period: "Jan 2026 – Present",

@@ -14,7 +14,7 @@ export function AboutCard() {
         </div>
         <div className="space-y-3.5 text-sm text-stone-600 dark:text-stone-300 leading-relaxed font-sans">
           <p className="font-medium text-stone-900 dark:text-stone-100">
-            3rd-year BS IT student specializing in front-end development (React & JavaScript) and seeking an internship. Proven leader as COO of SWUdevs, managing operations for a 150+ member tech community, with deployed projects in privacy-first document workspaces, digital signatures, and responsive portfolios.
+            3rd-year BS IT student specializing in front-end development and currently a Front-End AI Engineer Intern @ FlyRank AI. Proven leader as COO of SWUdevs, managing operations for a 150+ member tech community, with deployed projects in privacy-first document workspaces, digital signatures, and responsive portfolios.
           </p>
           <p>
             As COO at SWUdevs, I coordinate operations and technical initiatives for a community of over 150 members. I facilitate hands-on workshops covering Python, Java, Git, HTML/CSS, JavaScript, Web Development, UI/UX, Prompt Engineering, and AI Integration, helping students build practical skills for hackathons, technical projects, and real-world software development.
@@ -32,7 +32,7 @@ const TECH_CATEGORIES = [
   {
     name: "Frontend & Mobile",
     icon: Laptop,
-    skills: ["React", "JavaScript", "HTML/CSS", "Tailwind CSS", "Flutter (Foundational)", "Dart (Foundational)"],
+    skills: ["React", "Next.js", "JavaScript", "HTML/CSS", "Tailwind CSS", "Flutter (Foundational)", "Dart (Foundational)"],
   },
   {
     name: "Backend & Serverless",
