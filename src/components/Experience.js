@@ -58,11 +58,11 @@ export function ExperienceCard() {
               <div className="absolute -left-[21px] top-1.5 h-2 w-2 rounded-full bg-[var(--accent)] border border-stone-200 dark:border-stone-800 transition-colors duration-300" />
               
               <div className="space-y-0.5">
-                <div className="flex items-center justify-between gap-2">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2">
                   <h3 className="text-xs font-semibold text-stone-900 dark:text-stone-100">
                     {item.role}{item.company && <span className="text-stone-400 dark:text-stone-500 font-normal"> @ {item.company}</span>}
                   </h3>
-                  <span className="text-[10px] font-mono text-stone-400 dark:text-stone-500 whitespace-nowrap">
+                  <span className="text-[10px] font-mono text-stone-400 dark:text-stone-500 sm:whitespace-nowrap">
                     {item.period}
                   </span>
                 </div>
