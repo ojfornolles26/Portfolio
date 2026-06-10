@@ -22,16 +22,16 @@ const CERTS = [
     link: "https://www.credly.com/badges/2f5683e1-11e9-453f-98d4-8665aaf905f8/linked_in_profile",
   },
   {
-    name: "Full-Stack Development 101",
-    issuer: "Simplilearn",
-    year: "2026",
-    link: "https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiIzMjc3IiwiY2VydGlmaWNhdGVfdXJsIjoiaHR0cHM6XC9cL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0XC9zaGFyZVwvMTAwOTM5NDZfMTAzODQwODZfMTc3NjAxMzA1ODk0NC5wbmciLCJ1c2VybmFtZSI6Ik9ybGFuZG8gVC4gRm9ybm9sbGVzIEpyLiJ9&utm_source=shared-certificate&utm_medium=lms&utm_campaign=shared-certificate-promotion&referrer=https%3A%2F%2Flms.simplilearn.com%2Fcourses%2F6075%2FFull-Stack-Development-101%2Fcertificate%2Fdownload-skillup&%24web_only=true&_branch_match_id=1587301939072218284&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXL87MLcjJ1EssKNDLyczL1k%2FVz3BM9jI3KqnKMEqyrytKTUstKsrMS49PKsovL04tsvUBqkpN8cwDANn6669BAAAA",
-  },
-  {
     name: "Flutter Development",
     issuer: "Google Skills / Google Cloud",
     year: "2026",
     link: "https://www.skills.google/public_profiles/cdd1b14e-f2fd-4625-a88c-cf4139540444/badges/23714436?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share",
+  },
+  {
+    name: "Full-Stack Development 101",
+    issuer: "Simplilearn",
+    year: "2026",
+    link: "https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiIzMjc3IiwiY2VydGlmaWNhdGVfdXJsIjoiaHR0cHM6XC9cL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0XC9zaGFyZVwvMTAwOTM5NDZfMTAzODQwODZfMTc3NjAxMzA1ODk0NC5wbmciLCJ1c2VybmFtZSI6Ik9ybGFuZG8gVC4gRm9ybm9sbGVzIEpyLiJ9&utm_source=shared-certificate&utm_medium=lms&utm_campaign=shared-certificate-promotion&referrer=https%3A%2F%2Flms.simplilearn.com%2Fcourses%2F6075%2FFull-Stack-Development-101%2Fcertificate%2Fdownload-skillup&%24web_only=true&_branch_match_id=1587301939072218284&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXL87MLcjJ1EssKNDLyczL1k%2FVz3BM9jI3KqnKMEqyrytKTUstKsrMS49PKsovL04tsvUBqkpN8cwDANn6669BAAAA",
   },
 ];
 
