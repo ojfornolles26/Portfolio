@@ -4,6 +4,12 @@ import { Award, ArrowUpRight } from "lucide-react";
 
 const CERTS = [
   {
+    name: "Enterprise Design Thinking Practitioner",
+    issuer: "IBM SkillsBuild",
+    year: "2026",
+    link: "https://www.credly.com/badges/44257081-7f93-4727-91aa-0fb7da8a8a2e/public_url",
+  },
+  {
     name: "Retrieval-Augmented Generation for Enhanced AI Outputs",
     issuer: "IBM SkillsBuild",
     year: "2026",
