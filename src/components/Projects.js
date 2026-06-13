@@ -40,7 +40,6 @@ const PROJECTS = [
       "Editorial-inspired, minimalist digital resume and portfolio showcasing clean software engineering, local-first web applications, and AI integration workflows. Features fluid typography, seamless light/dark theme transition, and static optimization.",
     tech: ["React", "Next.js", "JavaScript", "Tailwind CSS", "Motion", "lucide-react"],
     github: "https://github.com/ojfornolles26/Portfolio",
-    live: "https://orlandofornollesjr.onrender.com/",
     metrics: ["Editorial-inspired typography", "Static Page Generation"],
   },
 ];
