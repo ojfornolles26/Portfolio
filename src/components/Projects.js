@@ -8,21 +8,31 @@ const PROJECTS = [
     title: "Filo",
     category: "Web App / Productivity",
     description:
-      "Browser-native document workspace for batch image-to-PDF conversion and PDF text extraction with structured Markdown output. Processes files entirely client-side for maximum privacy, with no server uploads required.",
-    tech: ["React", "Vite", "JavaScript", "Tailwind CSS", "jsPDF", "PDF.js", "JSZip", "Motion"],
+      "Browser-native document workspace for batch image-to-PDF conversion, lossless PDF exporting, and high-performance PDF-to-image/text extraction. Processes files 100% client-side for absolute privacy with zero server uploads.",
+    tech: ["React", "Vite", "JavaScript", "Tailwind CSS", "jsPDF", "pdfjs-dist", "JSZip", "Motion"],
     github: "https://github.com/ojfornolles26/Filo",
     live: "https://filo-5iot.onrender.com/",
-    metrics: ["100% Client-Side Processing", "Zero-Server PDF & Image Conversion"],
+    metrics: [
+      "100% Private Local Processing",
+      "Lossless PDF Export & Quality Control",
+      "Batch PDF-to-Image ZIP Extraction",
+      "Structured Markdown Text Parsing",
+    ],
   },
   {
     title: "Signity",
     category: "Web App / Productivity",
     description:
-      "Privacy-first digital signature creator with high-precision line smoothing and real-time canvas rendering. Exports auto-cropped transparent PNG files ready for professional documents. All processing runs locally, ensuring signature data never leaves the device.",
-    tech: ["React", "Vite", "JavaScript", "Tailwind CSS", "Motion", "HTML5 Canvas"],
+      "Privacy-first digital signature tool with dual creator modes for hand-drawn signing and typed calligraphy signatures. Features high-precision curve smoothing, dynamic font styling, and pixel-based auto-cropping to export transparent PNGs.",
+    tech: ["React", "Vite", "JavaScript", "Tailwind CSS", "Motion", "HTML5 Canvas", "Google Fonts"],
     github: "https://github.com/ojfornolles26/Signity",
     live: "https://signity-b8l8.onrender.com/",
-    metrics: ["100% Private & Client-Side", "Auto-Cropped Transparent PNG"],
+    metrics: [
+      "Dual Hand-Drawn & Typed Modes",
+      "6 Calligraphy & Cursive Font Styles",
+      "6 Premium Ink Colors & Pen Controls",
+      "Pixel-Based Auto-Cropped PNG Export",
+    ],
   },
   {
     title: "Embraze",
@@ -37,10 +47,15 @@ const PROJECTS = [
     title: "Portfolio",
     category: "Web App / Portfolio",
     description:
-      "Editorial-inspired, minimalist digital resume and portfolio showcasing clean software engineering, local-first web applications, and AI integration workflows. Features fluid typography, seamless light/dark theme transition, and static optimization.",
+      "Editorial-inspired, minimalist digital resume and portfolio showcasing clean software engineering, local-first web applications, and AI integrations. Features interactive components, animated theme transitions, and responsive bento layouts.",
     tech: ["React", "Next.js", "JavaScript", "Tailwind CSS", "Motion", "Lucide React"],
     github: "https://github.com/ojfornolles26/Portfolio",
-    metrics: ["Editorial-inspired typography", "Static Page Generation"],
+    metrics: [
+      "Editorial-Inspired Typography",
+      "Responsive Bento Grid Layout",
+      "Framer Motion Micro-Animations",
+      "Static Page Optimization",
+    ],
   },
 ];
 
