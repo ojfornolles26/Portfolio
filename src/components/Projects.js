@@ -5,20 +5,11 @@ import { Github } from "./icons";
 
 const PROJECTS = [
   {
-    title: "Embraze",
-    category: "Web App / Community Safety",
-    description:
-      "Community-driven safety and hazard reporting platform featuring an interactive map of Cebu City. Enables residents to report localized hazards with auto-expiry, upvote active issues to verify validity, and dispute inaccurate entries.",
-    tech: ["React", "Vite", "JavaScript", "Tailwind CSS", "Leaflet", "Lucide React"],
-    github: "https://github.com/ojfornolles26/Embraze",
-    metrics: ["Interactive Leaflet Map", "Community Verification System"],
-  },
-  {
     title: "Filo",
     category: "Web App / Productivity",
     description:
       "Browser-native document workspace for batch image-to-PDF conversion and PDF text extraction with structured Markdown output. Processes files entirely client-side for maximum privacy, with no server uploads required.",
-    tech: ["React", "Vite", "JavaScript", "Tailwind CSS", "jsPDF", "PDF.js"],
+    tech: ["React", "Vite", "JavaScript", "Tailwind CSS", "jsPDF", "PDF.js", "JSZip", "Motion"],
     github: "https://github.com/ojfornolles26/Filo",
     live: "https://filo-5iot.onrender.com/",
     metrics: ["100% Client-Side Processing", "Zero-Server PDF & Image Conversion"],
@@ -34,11 +25,20 @@ const PROJECTS = [
     metrics: ["100% Private & Client-Side", "Auto-Cropped Transparent PNG"],
   },
   {
+    title: "Embraze",
+    category: "Web App / Community Safety (Active Development)",
+    description:
+      "Community-driven safety and hazard reporting platform featuring an interactive map of Cebu City. Enables residents to report localized hazards with auto-expiry, upvote active issues to verify validity, and dispute inaccurate entries.",
+    tech: ["React", "Vite", "JavaScript", "Tailwind CSS", "Leaflet", "Lucide React"],
+    github: "https://github.com/ojfornolles26/Embraze",
+    metrics: ["Interactive Leaflet Map", "Community Verification System"],
+  },
+  {
     title: "Portfolio",
     category: "Web App / Portfolio",
     description:
       "Editorial-inspired, minimalist digital resume and portfolio showcasing clean software engineering, local-first web applications, and AI integration workflows. Features fluid typography, seamless light/dark theme transition, and static optimization.",
-    tech: ["React", "Next.js", "JavaScript", "Tailwind CSS", "Motion", "lucide-react"],
+    tech: ["React", "Next.js", "JavaScript", "Tailwind CSS", "Motion", "Lucide React"],
     github: "https://github.com/ojfornolles26/Portfolio",
     metrics: ["Editorial-inspired typography", "Static Page Generation"],
   },
