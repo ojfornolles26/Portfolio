@@ -13,7 +13,7 @@ const EXPERIENCE_ITEMS = [
   {
     role: "Chief Operating Officer",
     company: "SWUdevs",
-    period: "Jan 2026 – Present",
+    period: "Jun 2026 – Present",
     bullets: [
       "Coordinate operations and workflows across technology, creatives, programs, marketing, and finance for a 150+ member community.",
       "Facilitate hands-on workshops covering Python, Java, Git, HTML/CSS, JavaScript, Web Development, UI/UX, Prompt Engineering, and AI Integration, supporting student skill-building across the full development lifecycle.",
@@ -22,7 +22,7 @@ const EXPERIENCE_ITEMS = [
   {
     role: "Self-Taught Builder",
     company: "",
-    period: "2025 – Present",
+    period: "Jan 2025 – Present",
     bullets: [
       "Independently designed and architected digital systems focused on student productivity and workflows.",
       "Created Filo, a private client-side document workspace, utilizing local browser compilers for high-performance content extraction.",
@@ -33,7 +33,7 @@ const EXPERIENCE_ITEMS = [
   {
     role: "Wrote First Hello World",
     company: "Southwestern University PHINMA",
-    period: "2024",
+    period: "Aug 2024",
     bullets: [
       "Began coding journey, mastering core computational logic, basic syntax, and learning backend concepts.",
     ],
