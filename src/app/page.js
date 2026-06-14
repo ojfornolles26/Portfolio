@@ -144,14 +144,14 @@ export default function Home() {
             </div>
 
             {/* Quick Action Button Links */}
-            <div className="grid grid-cols-2 gap-2 pt-2.5 w-full max-w-[360px] mx-auto md:max-w-none md:mx-0 md:flex md:flex-wrap md:items-center md:justify-start md:w-auto">
+            <div className="flex flex-wrap gap-2 pt-2.5 w-full max-w-[360px] mx-auto sm:max-w-none sm:mx-0 sm:items-center sm:justify-start sm:w-auto">
               
               {/* Schedule meeting */}
               <a
                 href="https://calendar.google.com/calendar/render?action=TEMPLATE&add=orlandojr058@gmail.com&text=Meeting%20with%20Orlando%20Fornolles%20Jr."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-9 md:h-8 items-center justify-center rounded-lg bg-[var(--accent)] hover:bg-[var(--accent-hover)] px-3 text-xs font-semibold text-white dark:text-stone-950 transition-all duration-300 gap-1.5 shadow-[0_1px_2px_rgba(0,0,0,0.05)] cursor-pointer w-full md:w-auto relative before:absolute before:-inset-1.5 before:content-['']"
+                className="inline-flex h-9 md:h-8 items-center justify-center rounded-lg bg-[var(--accent)] hover:bg-[var(--accent-hover)] px-3 text-xs font-semibold text-white dark:text-stone-950 transition-all duration-300 gap-1.5 shadow-[0_1px_2px_rgba(0,0,0,0.05)] cursor-pointer w-full sm:w-auto relative before:absolute before:-inset-1.5 before:content-['']"
               >
                 <Calendar className="h-3.5 w-3.5 flex-shrink-0" />
                 <span>Schedule a Meeting</span>
@@ -161,7 +161,7 @@ export default function Home() {
               <a
                 href="mailto:orlandojr058@gmail.com"
                 onClick={handleEmailClick}
-                className="inline-flex h-9 md:h-8 w-full md:w-[130px] justify-center items-center rounded-lg border border-stone-200 dark:border-stone-800 bg-white/40 dark:bg-stone-900/40 text-xs font-semibold text-stone-700 dark:text-stone-300 hover:border-stone-400 dark:hover:border-stone-600 hover:bg-white/80 dark:hover:bg-stone-900/80 transition-all cursor-pointer select-none relative before:absolute before:-inset-1.5 before:content-['']"
+                className="inline-flex h-9 md:h-8 w-full sm:w-[130px] justify-center items-center rounded-lg border border-stone-200 dark:border-stone-800 bg-white/40 dark:bg-stone-900/40 text-xs font-semibold text-stone-700 dark:text-stone-300 hover:border-stone-400 dark:hover:border-stone-600 hover:bg-white/80 dark:hover:bg-stone-900/80 transition-all cursor-pointer select-none relative before:absolute before:-inset-1.5 before:content-['']"
               >
                 <AnimatePresence mode="wait" initial={false}>
                   {copiedEmail ? (
@@ -199,11 +199,11 @@ export default function Home() {
                 href="https://www.linkedin.com/in/ojfornolles26"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-9 md:h-8 w-full md:w-8 px-3.5 md:px-0 items-center justify-center rounded-lg border border-stone-200 dark:border-stone-800 bg-white/40 dark:bg-stone-900/40 text-stone-700 dark:text-stone-300 hover:border-stone-400 dark:hover:border-stone-600 hover:bg-white/80 dark:hover:bg-stone-900/80 transition-all cursor-pointer gap-2 md:gap-0 relative before:absolute before:-inset-1.5 before:content-['']"
+                className="inline-flex h-9 md:h-8 w-[calc(50%-4px)] sm:w-8 px-3.5 sm:px-0 items-center justify-center rounded-lg border border-stone-200 dark:border-stone-800 bg-white/40 dark:bg-stone-900/40 text-stone-700 dark:text-stone-300 hover:border-stone-400 dark:hover:border-stone-600 hover:bg-white/80 dark:hover:bg-stone-900/80 transition-all cursor-pointer gap-2 sm:gap-0 relative before:absolute before:-inset-1.5 before:content-['']"
                 aria-label="LinkedIn Profile"
               >
                 <Linkedin className="h-3.5 w-3.5 flex-shrink-0" />
-                <span className="text-xs font-semibold md:hidden">LinkedIn</span>
+                <span className="text-xs font-semibold sm:hidden">LinkedIn</span>
               </a>
 
               {/* GitHub */}
@@ -211,11 +211,11 @@ export default function Home() {
                 href="https://github.com/ojfornolles26"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-9 md:h-8 w-full md:w-8 px-3.5 md:px-0 items-center justify-center rounded-lg border border-stone-200 dark:border-stone-800 bg-white/40 dark:bg-stone-900/40 text-stone-700 dark:text-stone-300 hover:border-stone-400 dark:hover:border-stone-600 hover:bg-white/80 dark:hover:bg-stone-900/80 transition-all cursor-pointer gap-2 md:gap-0 relative before:absolute before:-inset-1.5 before:content-['']"
+                className="inline-flex h-9 md:h-8 w-[calc(50%-4px)] sm:w-8 px-3.5 sm:px-0 items-center justify-center rounded-lg border border-stone-200 dark:border-stone-800 bg-white/40 dark:bg-stone-900/40 text-stone-700 dark:text-stone-300 hover:border-stone-400 dark:hover:border-stone-600 hover:bg-white/80 dark:hover:bg-stone-900/80 transition-all cursor-pointer gap-2 sm:gap-0 relative before:absolute before:-inset-1.5 before:content-['']"
                 aria-label="GitHub Profile"
               >
                 <Github className="h-3.5 w-3.5 flex-shrink-0" />
-                <span className="text-xs font-semibold md:hidden">GitHub</span>
+                <span className="text-xs font-semibold sm:hidden">GitHub</span>
               </a>
 
             </div>

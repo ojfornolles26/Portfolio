@@ -62,7 +62,7 @@ export function ExperienceCard() {
                   <h3 className="text-xs font-semibold text-stone-900 dark:text-stone-100">
                     {item.role}{item.company && <span className="text-stone-400 dark:text-stone-500 font-normal"> @ {item.company}</span>}
                   </h3>
-                  <span className="text-[10px] font-mono text-stone-400 dark:text-stone-500 sm:whitespace-nowrap">
+                  <span className="text-[10px] font-mono text-stone-400 dark:text-stone-500 whitespace-nowrap">
                     {item.period}
                   </span>
                 </div>
