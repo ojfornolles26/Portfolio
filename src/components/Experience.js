@@ -60,7 +60,12 @@ export function ExperienceCard() {
               <div className="space-y-0.5">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2">
                   <h3 className="text-xs font-semibold text-stone-900 dark:text-stone-100">
-                    {item.role}{item.company && <span className="text-stone-400 dark:text-stone-500 font-normal"> @ {item.company}</span>}
+                    <span>{item.role}</span>
+                    {item.company && (
+                      <span className="block sm:inline text-stone-400 dark:text-stone-500 font-normal">
+                        {" "}@ {item.company}
+                      </span>
+                    )}
                   </h3>
                   <span className="text-[10px] font-mono text-stone-400 dark:text-stone-500 whitespace-nowrap">
                     {item.period}
