@@ -139,7 +139,7 @@ export default function Home() {
             {/* Sub-headline */}
             <div className="pt-0.5">
               <p className="text-xs md:text-sm font-sans font-medium tracking-wide text-stone-500 dark:text-stone-400 transition-colors duration-300">
-                Front-End AI Engineer Intern @ FlyRank AI | COO @ SWUdevs
+                Front-End AI Engineer | COO @ SWUdevs
               </p>
             </div>
 
