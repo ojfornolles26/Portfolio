@@ -83,7 +83,16 @@ export default function Projects() {
               {/* Header: Category & Actions */}
               <div className="flex justify-between items-center mb-1.5">
                 <span className="text-[9px] font-mono text-stone-400 dark:text-stone-500 uppercase tracking-wider">
-                  {project.category}
+                  {project.category.includes(" (") ? (
+                    <>
+                      {project.category.split(" (")[0]}{" "}
+                      <span className="whitespace-nowrap">
+                        ({project.category.split(" (")[1]}
+                      </span>
+                    </>
+                  ) : (
+                    project.category
+                  )}
                 </span>
                 <div className="flex items-center gap-2">
                   {project.github && (
