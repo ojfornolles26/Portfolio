@@ -1,3 +1,3 @@
 # Orlando Fornolles Jr. - Portfolio
 
-An editorial-inspired, minimalist digital resume and portfolio website showcasing front-end engineering, local-first web applications, and AI integrations. Designed for maximum responsiveness, visual elegance, and fluid layout flow using a clean Bento grid pattern.
+A minimalist digital resume and portfolio showcasing front-end engineering, local-first web applications, and AI integrations. Built to be clean, fully responsive, and performant.
