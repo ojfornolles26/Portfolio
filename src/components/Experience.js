@@ -6,17 +6,19 @@ const EXPERIENCE_ITEMS = [
     company: "FlyRank AI",
     period: "Jun 2026 – Present",
     bullets: [
-      "Integrate generative AI capabilities into front-end workflows to build intelligent, responsive, and user-centric features.",
-      "Collaborate on development of performant web applications using React, JavaScript, and modern front-end build tools.",
+      "Build responsive React and Next.js applications through structured front-end engineering modules, applying modern component architecture, Tailwind CSS styling, and Vercel deployment workflows.",
+      "Develop production-grade UI features across project-based modules, practicing reusable component patterns, state management with React hooks, and performance optimization.",
+      "Complete a capstone project demonstrating end-to-end front-end development proficiency, from design translation to deployment, earning a verifiable front-end AI engineering credential.",
     ],
   },
   {
     role: "Chief Operating Officer",
     company: "SWUdevs",
-    period: "Jun 2026 – Present",
+    period: "Jan 2026 – Present",
     bullets: [
-      "Coordinate operations and workflows across technology, creatives, programs, marketing, and finance for a 150+ member community.",
-      "Facilitate hands-on workshops covering Python, Java, Git, HTML/CSS, JavaScript, Web Development, UI/UX, Prompt Engineering, and AI Integration, supporting student skill-building across the full development lifecycle.",
+      "Facilitate hands-on workshops and peer-to-peer tutoring sessions covering JavaScript, HTML/CSS, Web Development, UI/UX, Git, Python, Java, Prompt Engineering, and AI Integration for 150+ student developers.",
+      "Coordinate operations and communications across technology, creatives, programs, marketing, and finance teams, helping students build practical skills for hackathons, technical projects, and real-world software development.",
+      "Lead cross-functional technical initiatives independently and asynchronously, consistently delivering structured documentation and feedback across diverse teams.",
     ],
   },
   {

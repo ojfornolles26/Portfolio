@@ -14,13 +14,13 @@ export function AboutCard() {
         </div>
         <div className="space-y-3.5 text-sm text-stone-600 dark:text-stone-300 leading-relaxed font-sans">
           <p className="font-medium text-stone-900 dark:text-stone-100">
-            3rd-year BS IT student specializing in front-end development and currently a Front-End AI Engineer Intern @ FlyRank AI. Proven leader as COO of SWUdevs, managing operations for a 150+ member tech community, with deployed applications in privacy-first document workspaces and digital signatures, alongside an active community safety mapping project.
+            Frontend developer specializing in React.js and modern JavaScript, with hands-on experience building responsive, privacy-first web applications using React 19, Next.js, Vite, and Tailwind CSS. Currently completing a Front-End AI Engineering Internship at FlyRank AI, building production-grade React and Next.js applications with modern tooling. As COO of SWUdevs, I lead a 150+ member developer community, coordinating cross-functional teams and delivering workshops and peer-to-peer tutoring on web development and AI integration.
           </p>
           <p>
-            As COO of SWUdevs, I coordinate operations and technical initiatives while facilitating hands-on workshops covering Python, Java, Git, HTML/CSS, JavaScript, Web Development, UI/UX, Prompt Engineering, and AI Integration, helping students build practical skills for hackathons, technical projects, and real-world software development.
+            As COO of SWUdevs, I coordinate operations and technical initiatives while facilitating hands-on workshops and peer-to-peer tutoring sessions covering Python, Java, Git, HTML/CSS, JavaScript, Web Development, UI/UX, Prompt Engineering, and AI Integration, helping students build practical skills for hackathons, technical projects, and real-world software development.
           </p>
           <p className="font-serif italic text-stone-600 dark:text-stone-300 text-[15px] leading-relaxed">
-            My applications are designed with a privacy-first architecture. By processing all operations directly in the browser, sensitive data like personal documents and digital signatures never leave the user's device.
+            I believe the best tools are the ones that get out of the user's way. That principle guides every interface I design and every component I write.
           </p>
         </div>
       </div>
@@ -30,24 +30,29 @@ export function AboutCard() {
 
 const TECH_CATEGORIES = [
   {
-    name: "Frontend & Mobile",
+    name: "Frontend",
     icon: Laptop,
-    skills: ["React", "Next.js", "JavaScript", "HTML/CSS", "Tailwind CSS", "Flutter (Foundational)", "Dart (Foundational)"],
+    skills: ["React.js", "Next.js", "JavaScript (ES6+)", "HTML5", "CSS3", "Tailwind CSS", "Responsive Design"],
   },
   {
-    name: "Backend & Serverless",
+    name: "Libraries & Patterns",
+    icon: Laptop,
+    skills: ["React Hooks", "Framer Motion", "Leaflet", "Lucide React", "jsPDF", "pdfjs-dist"],
+  },
+  {
+    name: "Backend & APIs",
     icon: Cpu,
-    skills: ["Node.js", "Firebase", "Supabase", "REST APIs", "Cloudflare Workers"],
+    skills: ["Node.js", "Express", "REST APIs", "Firebase", "Supabase", "Cloudflare Workers"],
   },
   {
     name: "AI & Emerging Tech",
     icon: Brain,
-    skills: ["Generative AI", "RAG Pipelines", "LLM Integration"],
+    skills: ["Generative AI", "RAG Pipelines", "LLM Integration", "Prompt Engineering"],
   },
   {
     name: "Developer Tools",
     icon: Wrench,
-    skills: ["Git/GitHub", "VS Code", "Vite"],
+    skills: ["Git/GitHub", "VS Code", "Vite", "ESLint", "Vercel", "Render", "Netlify"],
   },
 ];
 

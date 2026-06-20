@@ -8,7 +8,7 @@ const PROJECTS = [
     title: "Filo",
     category: "Web App / Productivity",
     description:
-      "Browser-native document workspace for batch image-to-PDF conversion, lossless PDF exporting, and high-performance PDF-to-image/text extraction. Processes files 100% client-side for absolute privacy with zero server uploads.",
+      "React 19 document workspace with 8 modular components for batch image-to-PDF conversion, lossless PDF exporting, and high-performance PDF-to-image/text extraction. Processes files 100% client-side using custom utility modules for maximum privacy with zero server uploads.",
     tech: ["React", "Vite", "JavaScript", "Tailwind CSS", "jsPDF", "pdfjs-dist", "JSZip", "Motion"],
     github: "https://github.com/ojfornolles26/Filo",
     live: "https://filo-5iot.onrender.com/",
@@ -23,7 +23,7 @@ const PROJECTS = [
     title: "Signity",
     category: "Web App / Productivity",
     description:
-      "Privacy-first digital signature tool with dual creator modes for hand-drawn signing and typed calligraphy signatures. Features high-precision curve smoothing, dynamic font styling, and pixel-based auto-cropping to export transparent PNGs.",
+      "Privacy-first React application for digital signatures with dual creator modes: hand-drawn signing via HTML5 Canvas with real-time useRef state synchronization, and typed calligraphy with dynamic font styling. Features high-precision curve smoothing and pixel-based auto-cropping for transparent PNG export.",
     tech: ["React", "Vite", "JavaScript", "Tailwind CSS", "Motion", "HTML5 Canvas", "Google Fonts"],
     github: "https://github.com/ojfornolles26/Signity",
     live: "https://signity-b8l8.onrender.com/",
@@ -38,7 +38,7 @@ const PROJECTS = [
     title: "Embraze",
     category: "Web App / Community Safety (Active Development)",
     description:
-      "Community-driven safety and hazard reporting platform featuring an interactive map of Cebu City. Enables residents to report localized hazards with auto-expiry, upvote active issues to verify validity, and dispute inaccurate entries.",
+      "Community-driven safety reporting React application with 3 modular components and an interactive Leaflet map of Cebu City. Built with useMemo-optimized filtering. Enables citizens to report localized incidents with auto-expiry, upvote active issues, and dispute inaccurate entries.",
     tech: ["React", "Vite", "JavaScript", "Tailwind CSS", "Leaflet", "Lucide React"],
     github: "https://github.com/ojfornolles26/Embraze",
     metrics: ["Interactive Leaflet Map", "Community Verification System"],
@@ -47,7 +47,7 @@ const PROJECTS = [
     title: "Portfolio",
     category: "Web App / Portfolio",
     description:
-      "Editorial-inspired, minimalist digital resume and portfolio showcasing clean software engineering, local-first web applications, and AI integrations. Features interactive components, animated theme transitions, and responsive bento layouts.",
+      "Next.js 16 portfolio built with React 19, featuring 6 reusable components, data-driven rendering, Framer Motion animations with AnimatePresence, accessible semantic HTML (aria-labels, heading hierarchy), dark/light theme toggling, and a responsive bento grid layout.",
     tech: ["React", "Next.js", "JavaScript", "Tailwind CSS", "Motion", "Lucide React"],
     github: "https://github.com/ojfornolles26/Portfolio",
     metrics: [
