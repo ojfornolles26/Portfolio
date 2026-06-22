@@ -28,7 +28,7 @@ const EXPERIENCE_ITEMS = [
     bullets: [
       "Independently designed and architected digital systems focused on student productivity and workflows.",
       "Created Filo, a private client-side document workspace, utilizing local browser compilers for high-performance content extraction, batch PDF-to-image conversion, and lossless PDF export.",
-      "Created Trae, a cross-platform duty hour tracker, to simplify duty hour tracking for students and interns.",
+      "Created Embraze, a community-driven safety reporting platform with an interactive Leaflet map, enabling citizens to report localized incidents with auto-expiry and upvote verification.",
       "Created Signity, a private-by-design signature creator featuring real-time high-precision smoothing, dual drawing/cursive typing modes, and auto-cropped exports.",
     ],
   },
