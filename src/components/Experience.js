@@ -111,7 +111,7 @@ export function EducationCard() {
             </p>
           </div>
           <p className="text-xs text-stone-600 dark:text-stone-300 leading-relaxed pt-2.5 border-t border-stone-200/60 dark:border-stone-800/60">
-            Relevant coursework: Web Development, Database Management Systems, Networking, Systems Integration, and Software Architectures.
+            Relevant coursework: Computer Programming, Web Development, Database Management Systems, Data Structures and Algorithms, Networking, Systems Integration, and Software Architectures.
           </p>
         </div>
       </div>
