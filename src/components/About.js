@@ -14,7 +14,7 @@ export function AboutCard() {
         </div>
         <div className="space-y-3.5 text-sm text-stone-600 dark:text-stone-300 leading-relaxed font-sans">
           <p className="font-medium text-stone-900 dark:text-stone-100">
-            Frontend developer specializing in React.js and modern JavaScript, with hands-on experience building responsive, production-grade web applications using React 19, Next.js, Vite, and Tailwind CSS. Currently completing a Front-End Engineering Internship at FlyRank AI, developing React and Next.js applications with modern component architecture and deployment workflows. As COO of SWUdevs, I lead a 150+ member developer community, coordinating cross-functional teams and delivering workshops on web development and UI/UX best practices.
+            Frontend developer with 1+ years of hands-on experience specializing in React.js and modern JavaScript, building responsive, production-grade web applications using React 19, Next.js, Vite, and Tailwind CSS. Currently completing a Front-End Engineering Internship at FlyRank AI, developing React and Next.js applications with modern component architecture and deployment workflows. As COO of SWUdevs, I lead a 150+ member developer community, coordinating cross-functional teams and delivering workshops on web development and UI/UX best practices.
           </p>
           <p>
             As COO of SWUdevs, I coordinate operations and technical initiatives while facilitating hands-on workshops and peer-to-peer tutoring sessions covering JavaScript, HTML/CSS, Web Development, UI/UX, Git, Python, and Java, helping students build practical skills for hackathons, technical projects, and real-world software development.
