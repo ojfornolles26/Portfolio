@@ -14,10 +14,10 @@ export function AboutCard() {
         </div>
         <div className="space-y-3.5 text-sm text-stone-600 dark:text-stone-300 leading-relaxed font-sans">
           <p className="font-medium text-stone-900 dark:text-stone-100">
-            Frontend developer specializing in React.js and modern JavaScript, with hands-on experience building responsive, privacy-first web applications using React 19, Next.js, Vite, and Tailwind CSS. Currently completing a Front-End AI Engineering Internship at FlyRank AI, building production-grade React and Next.js applications with modern tooling. As COO of SWUdevs, I lead a 150+ member developer community, coordinating cross-functional teams and delivering workshops and peer-to-peer tutoring on web development and AI integration.
+            Frontend developer specializing in React.js and modern JavaScript, with hands-on experience building responsive, production-grade web applications using React 19, Next.js, Vite, and Tailwind CSS. Currently completing a Front-End Engineering Internship at FlyRank AI, developing React and Next.js applications with modern component architecture and deployment workflows. As COO of SWUdevs, I lead a 150+ member developer community, coordinating cross-functional teams and delivering workshops on web development and UI/UX best practices.
           </p>
           <p>
-            As COO of SWUdevs, I coordinate operations and technical initiatives while facilitating hands-on workshops and peer-to-peer tutoring sessions covering Python, Java, Git, HTML/CSS, JavaScript, Web Development, UI/UX, Prompt Engineering, and AI Integration, helping students build practical skills for hackathons, technical projects, and real-world software development.
+            As COO of SWUdevs, I coordinate operations and technical initiatives while facilitating hands-on workshops and peer-to-peer tutoring sessions covering JavaScript, HTML/CSS, Web Development, UI/UX, Git, Python, and Java, helping students build practical skills for hackathons, technical projects, and real-world software development.
           </p>
           <p className="font-serif italic text-stone-600 dark:text-stone-300 text-[15px] leading-relaxed">
             I believe the best tools are the ones that get out of the user's way. That principle guides every interface I design and every component I write.
@@ -45,14 +45,14 @@ const TECH_CATEGORIES = [
     skills: ["Node.js", "Express", "REST APIs", "Firebase", "Supabase", "Cloudflare Workers"],
   },
   {
-    name: "AI & Emerging Tech",
-    icon: Brain,
-    skills: ["Generative AI", "RAG Pipelines", "LLM Integration", "Prompt Engineering"],
-  },
-  {
     name: "Developer Tools",
     icon: Wrench,
     skills: ["Git/GitHub", "VS Code", "Vite", "ESLint", "Vercel", "Render", "Netlify"],
+  },
+  {
+    name: "AI-Assisted Development",
+    icon: Brain,
+    skills: ["Prompt Engineering", "LLM Integration", "Generative AI"],
   },
 ];
 

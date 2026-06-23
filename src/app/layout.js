@@ -17,8 +17,8 @@ const newsreader = Newsreader({
 
 export const metadata = {
   title: "Orlando Fornolles Jr.",
-  description: "An editorial-inspired, minimalist digital resume and portfolio for Orlando Fornolles Jr., showcasing clean software engineering, local-first web applications, and AI integration workflows.",
-  keywords: ["Orlando Fornolles Jr.", "Front-End AI Engineer", "FlyRank AI", "AI Engineer Intern", "Full-Stack Developer", "Front-End Developer", "SWUdevs COO", "Portfolio", "Minimalist CV", "Cebu City", "React", "JavaScript", "AI Engineering"],
+  description: "An editorial-inspired, minimalist digital resume and portfolio for Orlando Fornolles Jr., showcasing clean frontend engineering, production-grade React and Next.js web applications, and modern component architecture.",
+  keywords: ["Orlando Fornolles Jr.", "Frontend Developer", "React Developer", "Next.js", "Front-End Engineer", "SWUdevs COO", "Portfolio", "Minimalist CV", "Cebu City", "React", "JavaScript", "Tailwind CSS", "Web Developer"],
 };
 
 export default function RootLayout({ children }) {
