@@ -8,7 +8,7 @@ const EXPERIENCE_ITEMS = [
     bullets: [
       "Build responsive React and Next.js applications through structured front-end engineering modules, applying modern component architecture, Tailwind CSS styling, and Vercel deployment workflows.",
       "Develop production-grade UI features across project-based modules, practicing reusable component patterns, state management with React hooks, and performance optimization.",
-      "Complete a capstone project demonstrating end-to-end front-end development proficiency, from design translation to deployment, earning a verifiable front-end AI engineering credential.",
+      "Deploy a capstone project demonstrating end-to-end front-end development proficiency, from design translation to deployment, earning a verifiable front-end AI engineering credential.",
     ],
   },
   {
@@ -111,7 +111,7 @@ export function EducationCard() {
             </p>
           </div>
           <p className="text-xs text-stone-600 dark:text-stone-300 leading-relaxed pt-2.5 border-t border-stone-200/60 dark:border-stone-800/60">
-            Relevant coursework: Computer Programming, Web Development, Database Management Systems, Data Structures and Algorithms, Networking, Systems Integration, and Software Architectures.
+            Relevant coursework: Object-Oriented Programming, Data Structures &amp; Algorithms, Web Development, Database Management Systems, Software Architectures, and Mobile Application Development.
           </p>
         </div>
       </div>
