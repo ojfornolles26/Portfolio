@@ -296,21 +296,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* SWUdevs Badge */}
-              <div className="absolute top-4 right-4 md:top-6 md:right-6 flex items-center gap-1.5 pl-1.5 pr-2.5 py-1 rounded-full border border-stone-200 dark:border-stone-850 bg-white/70 dark:bg-stone-900/50 shadow-[0_1px_2px_rgba(0,0,0,0.02)] backdrop-blur-sm">
-                <div className="relative w-4 h-4 rounded overflow-hidden flex-shrink-0">
-                  <Image
-                    src="/SwuDevs Logo Variations 1.png"
-                    alt="SWUdevs Logo"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-                <span className="text-[9px] font-mono font-bold tracking-wider text-stone-600 dark:text-stone-300 uppercase">
-                  SWUdevs
-                </span>
-              </div>
-
             </div>
           </motion.div>
 
