@@ -62,39 +62,44 @@ const PROJECTS = [
 export default function Projects() {
   return (
     <div className="bento-card">
-      <div className="flex items-center gap-2 mb-4">
+      <div className="flex items-center gap-2 mb-6">
         <span className="h-1.5 w-1.5 rounded-full bg-[var(--accent)] transition-colors duration-300" />
         <h2 className="text-xs font-mono uppercase tracking-widest text-stone-500 dark:text-stone-400">
           Selected Projects
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
         {PROJECTS.map((project, idx) => (
           <div
             key={idx}
-            className={`flex flex-col justify-between p-3.5 rounded-lg bg-transparent border border-stone-200/60 dark:border-stone-800/60 transition-all duration-300 hover:border-stone-400 dark:hover:border-stone-700 hover:shadow-[0_2px_8px_rgba(0,0,0,0.015)] ${
+            className={`group/project flex flex-col justify-between p-4 rounded border border-stone-200/60 dark:border-stone-900 bg-stone-100/10 dark:bg-stone-950/10 hover:bg-stone-100/20 dark:hover:bg-stone-950/20 transition-all duration-300 hover:border-stone-350 dark:hover:border-stone-750 hover:shadow-[0_2px_6px_rgba(0,0,0,0.015)] ${
               idx === PROJECTS.length - 1 && PROJECTS.length % 2 !== 0
                 ? "sm:col-span-2"
                 : ""
             }`}
           >
             <div>
-              {/* Header: Category & Actions */}
-              <div className="flex justify-between items-center mb-1.5">
-                <span className="text-[9px] font-mono text-stone-400 dark:text-stone-500 uppercase tracking-wider">
-                  {project.category.includes(" (") ? (
-                    <>
-                      {project.category.split(" (")[0]}{" "}
-                      <span className="whitespace-nowrap">
-                        ({project.category.split(" (")[1]}
-                      </span>
-                    </>
-                  ) : (
-                    project.category
-                  )}
+              {/* Header: Number, Category & Actions */}
+              <div className="flex justify-between items-center mb-2.5">
+                <span className="text-[10px] font-mono text-stone-400 dark:text-stone-500 uppercase tracking-wider flex items-center gap-1.5">
+                  <span className="font-serif italic font-bold text-[var(--accent)]">
+                    {String(idx + 1).padStart(2, "0")}.
+                  </span>
+                  <span>
+                    {project.category.includes(" (") ? (
+                      <>
+                        {project.category.split(" (")[0]}{" "}
+                        <span className="opacity-60">
+                          ({project.category.split(" (")[1]}
+                        </span>
+                      </>
+                    ) : (
+                      project.category
+                    )}
+                  </span>
                 </span>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2.5">
                   {project.github && (
                     <a
                       href={project.github}
@@ -111,42 +116,42 @@ export default function Projects() {
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-stone-400 hover:text-[var(--accent)] dark:text-stone-500 dark:hover:text-[var(--accent)] transition-colors"
+                      className="text-stone-400 hover:text-[var(--accent)] dark:text-stone-500 dark:hover:text-[var(--accent)] transition-colors flex items-center gap-0.5 group/link"
                       aria-label={`${project.title} Live`}
                     >
-                      <ExternalLink className="h-3.5 w-3.5" />
+                      <ExternalLink className="h-3.5 w-3.5 transition-transform duration-300 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
                     </a>
                   )}
                 </div>
               </div>
 
               {/* Title */}
-              <h3 className="text-sm font-semibold text-stone-900 dark:text-stone-100 mb-1">
+              <h3 className="text-sm font-bold text-stone-900 dark:text-stone-100 mb-1.5 font-sans group-hover/project:text-[var(--accent)] transition-colors">
                 {project.title}
               </h3>
 
               {/* Description */}
-              <p className="text-xs text-stone-500 dark:text-stone-400 leading-relaxed mb-3">
+              <p className="text-xs text-stone-500 dark:text-stone-400 leading-relaxed mb-4">
                 {project.description}
               </p>
 
               {/* Metrics */}
-              <div className="mb-3.5 space-y-0.5 border-t border-stone-200/60 dark:border-stone-800/60 pt-2 flex flex-col gap-0.5">
+              <div className="mb-4 space-y-1 border-t border-stone-200/50 dark:border-stone-900/60 pt-3 flex flex-col">
                 {project.metrics.map((metric, mIdx) => (
-                  <div key={mIdx} className="flex items-center gap-1.5 text-[11px] font-medium text-stone-600 dark:text-stone-300">
-                    <span className="h-1 w-1 rounded-full bg-stone-600 dark:bg-stone-300" />
-                    {metric}
+                  <div key={mIdx} className="flex items-start gap-2 text-[10px] font-mono uppercase tracking-wider text-stone-500 dark:text-stone-400">
+                    <span className="h-1 w-1 rounded-full bg-[var(--accent)] mt-1.5 flex-shrink-0" />
+                    <span>{metric}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Tech Tags */}
-            <div className="flex flex-wrap gap-1 mt-auto pt-1">
+            <div className="flex flex-wrap gap-1 mt-auto pt-2">
               {project.tech.map((t) => (
                 <span
                   key={t}
-                  className="px-1.5 py-0.5 text-[10px] rounded bg-transparent border border-stone-200/60 dark:border-stone-800/60 text-stone-500 dark:text-stone-400 font-medium"
+                  className="px-1.5 py-0.5 text-[9px] font-mono rounded bg-stone-100/40 dark:bg-stone-900/40 border border-stone-200/40 dark:border-stone-900/80 text-stone-500 dark:text-stone-400"
                 >
                   {t}
                 </span>

@@ -1,12 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
   <style>
-    rect { fill: #0c0a09; }
-    text { fill: #34d399; }
+    text {
+      fill: #34d399;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 17px;
+      font-weight: bold;
+      font-style: italic;
+    }
     @media (prefers-color-scheme: light) {
-      rect { fill: #f5f2eb; stroke: #e4dfd5; stroke-width: 1.5; }
-      text { fill: #2e5a44; }
+      text {
+        fill: #2e5a44;
+      }
     }
   </style>
-  <rect width="32" height="32" rx="6" />
-  <text x="15" y="17.5" text-anchor="middle" dominant-baseline="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="bold" font-style="italic" font-size="15" letter-spacing="-0.5">OJ</text>
+  <text x="16" y="20.5" text-anchor="middle" dominant-baseline="middle">OJ.</text>
 </svg>

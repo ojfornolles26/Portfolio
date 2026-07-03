@@ -17,7 +17,7 @@ const newsreader = Newsreader({
 });
 
 export const metadata = {
-  title: "Orlando Fornolles Jr.",
+  title: "Orlando Fornolles Jr. — Frontend Developer",
   description: "An editorial-inspired, minimalist digital resume and portfolio for Orlando Fornolles Jr., showcasing clean frontend engineering, production-grade React and Next.js web applications, and modern component architecture.",
   keywords: ["Orlando Fornolles Jr.", "Frontend Developer", "React Developer", "Next.js", "Front-End Engineer", "SWUdevs COO", "Portfolio", "Minimalist CV", "Cebu City", "React", "JavaScript", "Tailwind CSS", "Web Developer"],
 };
@@ -34,7 +34,6 @@ export default function RootLayout({ children }) {
           attribute="class"
           defaultTheme="light"
           enableSystem={false}
-          disableTransitionOnChange
         >
           {children}
         </ThemeProvider>

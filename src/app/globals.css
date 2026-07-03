@@ -14,6 +14,7 @@
 }
 
 :root {
+  color-scheme: light;
   --background: #f5f2eb; /* Warm eye-friendly paper-cream light background */
   --foreground: #292524; /* Softer stone-800 for less contrast glare */
   --muted: #78716c; /* stone-500 */
@@ -21,19 +22,20 @@
   --accent: #2e5a44; /* Premium Deep Forest Green as 10% Accent */
   --accent-hover: #1e3d2e; /* Deep forest green hover color */
   --border: #e4dfd5; /* Softer blending borders */
-  --card-bg: transparent; /* Flat transparent cards */
+  --card-bg: #faf8f5; /* Solid warm paper card background */
   --scroll-thumb: #d2cbbe; /* Soft paper-matching scroll thumb */
 }
 
 .dark {
+  color-scheme: dark;
   --background: #0c0a09; /* stone-950 dark background */
   --foreground: #f5f5f4; /* stone-100 */
   --muted: #a8a29e; /* stone-400 */
   --muted-light: #1c1917; /* stone-900 */
   --accent: #34d399; /* Premium Glowing Emerald/Sage as 10% Accent */
   --accent-hover: #10b981; /* Accent hover color */
-  --border: #292524; /* stone-800 for subtle borders */
-  --card-bg: transparent; /* Flat transparent cards */
+  --border: #221f1d; /* Subtle dark border */
+  --card-bg: #141211; /* Solid dark warm card background */
   --scroll-thumb: #292524; /* stone-800 */
 }
 
@@ -82,14 +84,33 @@ body {
   border: 1px solid var(--border);
   background-color: var(--card-bg);
   padding: 1.25rem;
-  border-radius: 0.75rem;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+  border-radius: 0.5rem; /* Sharper rounded-lg corner for structured editorial feel */
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.01);
+}
+
+@media (min-width: 768px) {
+  .bento-card {
+    padding: 1.5rem;
+  }
 }
 
 .bento-card:hover {
   border-color: var(--accent); /* Fade to accent color instead of foreground */
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+/* Calm Pulse Animation for Status */
+@keyframes calm-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+.status-pulse {
+  animation: calm-pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 /* Timeline vertical line custom accent */
@@ -128,4 +149,60 @@ body {
 .dark ::selection {
   background-color: rgba(52, 211, 153, 0.2); /* #34d399 with 20% opacity */
   color: var(--accent);
+}
+
+/* Custom View Transitions Keyframes */
+@keyframes reveal-light {
+  from {
+    clip-path: circle(0px at var(--x) var(--y));
+  }
+  to {
+    clip-path: circle(var(--r) at var(--x) var(--y));
+  }
+}
+
+@keyframes reveal-dark {
+  from {
+    clip-path: circle(var(--r) at var(--x) var(--y));
+  }
+  to {
+    clip-path: circle(0px at var(--x) var(--y));
+  }
+}
+
+/* Disable default view transitions animations globally */
+::view-transition-group(root),
+::view-transition-image-pair(root),
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none !important;
+  mix-blend-mode: normal !important;
+}
+
+/* Light to Dark transition: old (light) shrinks on top */
+.transition-to-dark::view-transition-old(root) {
+  animation: reveal-dark 450ms cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+  z-index: 9999;
+}
+.transition-to-dark::view-transition-new(root) {
+  z-index: 1;
+}
+
+/* Dark to Light transition: new (light) expands on top */
+.transition-to-light::view-transition-new(root) {
+  animation: reveal-light 450ms cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+  z-index: 9999;
+}
+.transition-to-light::view-transition-old(root) {
+  z-index: 1;
+}
+
+/* Disable standard CSS transitions during active view transitions natively and via custom classes */
+html:active-view-transition,
+html:active-view-transition *,
+.transition-to-dark,
+.transition-to-dark *,
+.transition-to-light,
+.transition-to-light * {
+  transition: none !important;
 }
