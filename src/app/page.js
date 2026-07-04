@@ -22,12 +22,17 @@ export default function Home() {
 
   const handleEmailClick = (e) => {
     e.preventDefault();
+    const email = "orlandojr058@gmail.com";
     try {
-      navigator.clipboard.writeText("orlandojr058@gmail.com");
+      navigator.clipboard.writeText(email);
       setCopiedEmail(true);
       setTimeout(() => setCopiedEmail(false), 2000);
+      
+      // Also open local mail client for direct composition
+      window.location.href = `mailto:${email}?subject=Inquiry%20from%20Portfolio`;
     } catch (err) {
       console.error("Failed to copy email:", err);
+      window.location.href = `mailto:${email}?subject=Inquiry%20from%20Portfolio`;
     }
   };
 
