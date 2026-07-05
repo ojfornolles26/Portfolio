@@ -8,15 +8,15 @@ const PROJECTS = [
     title: "Filo",
     category: "Web App / Productivity",
     description:
-      "React 19 document workspace with 8 modular components for batch image-to-PDF conversion, lossless PDF exporting, and high-performance PDF-to-image/text extraction. Processes files 100% client-side using custom utility modules for maximum privacy with zero server uploads.",
-    tech: ["React", "Vite", "JavaScript", "Tailwind CSS", "jsPDF", "pdfjs-dist", "JSZip", "Motion"],
+      "React 19 document workspace and offline-first PWA with modular components for batch format conversion (PNG, JPEG, WebP), high-DPI canvas cropping, local PDF audio reading, and offline text/Markdown extraction. Processes files 100% client-side for absolute data privacy.",
+    tech: ["React", "Vite", "Tailwind CSS", "jsPDF", "pdfjs-dist", "JSZip", "PWA", "Motion"],
     github: "https://github.com/ojfornolles26/Filo",
     live: "https://filo-5iot.onrender.com/",
     metrics: [
-      "100% Private Local Processing",
-      "Lossless PDF Export & Quality Control",
-      "Batch PDF-to-Image ZIP Extraction",
-      "Structured Markdown Text Parsing",
+      "100% Local Offline PWA Processing",
+      "Local PDF Text & Audio Reader",
+      "Format Converter (PNG/JPEG/WebP)",
+      "High-DPI Canvas Cropper & Editor",
     ],
   },
   {
