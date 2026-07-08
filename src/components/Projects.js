@@ -36,12 +36,17 @@ const PROJECTS = [
   },
   {
     title: "Embraze",
-    category: "Web App / Community Safety (Active Development)",
+    category: "Web App / Community Safety",
     description:
-      "Community-driven safety reporting React application with 3 modular components and an interactive Leaflet map of Cebu City. Built with useMemo-optimized filtering. Enables citizens to report localized incidents with auto-expiry, upvote active issues, and dispute inaccurate entries.",
-    tech: ["React", "Vite", "JavaScript", "Tailwind CSS", "Leaflet", "Lucide React"],
+      "Community-driven safety and hazard reporting React application for Cebu with an interactive Leaflet map featuring z-index layering and opacity aging. Includes photo upload with canvas compression, thumbs voting verification, geolocation capture, localStorage persistence, and social-media-style incident detail views with dark/light theming.",
+    tech: ["React", "Vite", "JavaScript", "Tailwind CSS", "Leaflet", "Lucide React", "Geolocation API", "Canvas API"],
     github: "https://github.com/ojfornolles26/Embraze",
-    metrics: ["Interactive Leaflet Map", "Community Verification System"],
+    metrics: [
+      "Interactive Leaflet Map with Opacity Aging",
+      "Photo Upload with Canvas Compression",
+      "Thumbs Voting Verification System",
+      "LocalStorage Persistence & Dark Mode",
+    ],
   },
   {
     title: "Portfolio",

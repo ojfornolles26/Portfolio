@@ -2,6 +2,16 @@
 
 const EXPERIENCE_ITEMS = [
   {
+    role: "Software Developer Intern",
+    company: "SugboDoc",
+    period: "Jul 2026 – Present",
+    bullets: [
+      "Build and maintain full-stack web applications on-site, contributing to SugboDoc's healthcare technology platform serving the Cebu community.",
+      "Complete structured training in UI/UX design fundamentals using Figma for wireframing, prototyping, and interface design workflows.",
+      "Collaborate with the development team on production features, applying modern web development practices across the full software development lifecycle.",
+    ],
+  },
+  {
     role: "Front-End AI Engineer Intern",
     company: "FlyRank AI",
     period: "Jun 2026 – Present",
@@ -28,7 +38,7 @@ const EXPERIENCE_ITEMS = [
     bullets: [
       "Independently designed and architected digital systems focused on student productivity and workflows.",
       "Created Filo, a private client-side document workspace, utilizing local browser compilers for high-performance content extraction, batch PDF-to-image conversion, and lossless PDF export.",
-      "Created Embraze, a community-driven safety reporting platform with an interactive Leaflet map, enabling citizens to report localized incidents with auto-expiry and upvote verification.",
+      "Created Embraze, a community-driven safety and hazard reporting platform for Cebu with an interactive Leaflet map, featuring photo upload with canvas compression, thumbs voting verification, geolocation capture, and localStorage persistence with dark/light theming.",
       "Created Signity, a private-by-design signature creator featuring real-time high-precision smoothing, dual drawing/cursive typing modes, and auto-cropped exports.",
     ],
   },
