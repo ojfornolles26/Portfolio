@@ -210,7 +210,7 @@ export default function Home() {
 
                   <div className="mt-1.5 mb-2.5">
                     <span className="inline-flex items-center px-2.5 py-0.5 rounded border border-stone-200 dark:border-stone-850 bg-stone-100/60 dark:bg-stone-900/50 text-[10px] font-mono font-bold uppercase tracking-wider text-stone-600 dark:text-stone-300">
-                      Software Developer (React & Next.js)
+                      Software Developer
                     </span>
                   </div>
                 </div>
