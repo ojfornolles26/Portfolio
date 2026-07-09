@@ -4,6 +4,12 @@ import { Award, ArrowUpRight } from "lucide-react";
 
 const CERTS = [
   {
+    name: "AI Fluency: Framework & Foundations",
+    issuer: "Anthropic Education",
+    year: "2026",
+    link: "https://verify.skilljar.com/c/8gfps2x9hd8q",
+  },
+  {
     name: "Enterprise Design Thinking Practitioner",
     issuer: "IBM SkillsBuild",
     year: "2026",
