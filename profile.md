@@ -15,7 +15,7 @@
 
   <!-- Role / Sub-headline -->
   <p align="center" style="font-size: 1.15em; color: #8c7a6b; font-style: italic; margin-top: 10px;">
-    Frontend Developer (React & Next.js) | COO @ SWUdevs
+    Software Developer | COO @ SWUdevs
   </p>
 
   <!-- Navigation / Links -->
