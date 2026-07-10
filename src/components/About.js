@@ -15,7 +15,7 @@ export function AboutCard() {
         
         <div className="max-w-3xl space-y-5 text-sm text-stone-600 dark:text-stone-300 leading-relaxed font-sans">
           <p className="font-medium text-stone-900 dark:text-stone-100 text-base leading-snug">
-            Software developer specializing in React.js and modern JavaScript, building responsive, production-grade web applications using React 19, Next.js, Vite, and Tailwind CSS.
+            Software developer specializing in React.js and modern JavaScript, building responsive, production-grade web applications using React, Next.js, Vite, and Tailwind CSS.
           </p>
           <p>
             Currently a Software Developer Intern at SugboDoc Technologies Inc., building full-stack web applications on-site for a healthcare technology platform. Also completing a Front-End Engineering Internship at FlyRank AI, developing React and Next.js applications with modern component architecture and deployment workflows. As COO of SWUdevs, I lead a 150+ member developer community, coordinating cross-functional teams and delivering workshops on web development and UI/UX best practices.
