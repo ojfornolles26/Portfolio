@@ -18,7 +18,7 @@ export function AboutCard() {
             Software developer specializing in React.js and modern JavaScript, building responsive, production-grade web applications using React 19, Next.js, Vite, and Tailwind CSS.
           </p>
           <p>
-            Currently a Software Developer Intern at SugboDoc, building full-stack web applications on-site for a healthcare technology platform. Also completing a Front-End Engineering Internship at FlyRank AI, developing React and Next.js applications with modern component architecture and deployment workflows. As COO of SWUdevs, I lead a 150+ member developer community, coordinating cross-functional teams and delivering workshops on web development and UI/UX best practices.
+            Currently a Software Developer Intern at SugboDoc Technologies Inc., building full-stack web applications on-site for a healthcare technology platform. Also completing a Front-End Engineering Internship at FlyRank AI, developing React and Next.js applications with modern component architecture and deployment workflows. As COO of SWUdevs, I lead a 150+ member developer community, coordinating cross-functional teams and delivering workshops on web development and UI/UX best practices.
           </p>
           <blockquote className="border-l-2 border-[var(--accent)] pl-4 py-1 font-serif italic text-stone-855 dark:text-stone-200 text-base leading-relaxed">
             "I believe the best tools are the ones that get out of the user's way. That principle guides every interface I design and every component I write."

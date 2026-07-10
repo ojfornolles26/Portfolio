@@ -3,10 +3,10 @@
 const EXPERIENCE_ITEMS = [
   {
     role: "Software Developer Intern",
-    company: "SugboDoc",
+    company: "SugboDoc Technologies Inc.",
     period: "Jul 2026 – Present",
     bullets: [
-      "Build and maintain full-stack web applications on-site, contributing to SugboDoc's healthcare technology platform serving the Cebu community.",
+      "Build and maintain full-stack web applications on-site, contributing to SugboDoc Technologies Inc.'s healthcare technology platform serving the Cebu community.",
       "Complete structured training in UI/UX design fundamentals using Figma for wireframing, prototyping, and interface design workflows.",
       "Collaborate with the development team on production features, applying modern web development practices across the full software development lifecycle.",
     ],
