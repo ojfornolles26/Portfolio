@@ -158,52 +158,56 @@ export default function Home() {
           <motion.div variants={itemVariants} className="col-span-1 md:col-span-6">
             <div className="bento-card relative flex flex-col md:flex-row items-center md:items-start gap-6 h-full">
               
-              {/* Profile Photo - GPU-Accelerated Anime Form-Switching Transformation */}
+              {/* Profile Photo - Anime Form-Switching Transformation */}
               <div className="relative w-28 h-28 md:w-32 md:h-32 rounded border border-stone-200 dark:border-slate-800 bg-stone-100/30 dark:bg-slate-900/30 overflow-hidden flex-shrink-0 shadow-[0_1px_2px_rgba(0,0,0,0.02)] group/photo">
-                {/* Light Mode Photo */}
-                <div
-                  className={`absolute inset-0 w-full h-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                    currentTheme === "light"
-                      ? "opacity-100 scale-100 rotate-0 z-10"
-                      : "opacity-0 scale-95 -rotate-3 pointer-events-none z-0"
-                  }`}
-                  style={{ willChange: "transform, opacity" }}
-                >
-                  <Image
-                    src="/profile-light.jpeg"
-                    alt="Orlando Fornolles Jr."
-                    fill
-                    priority
-                    className="object-cover object-center transition-transform duration-700 group-hover/photo:scale-105"
-                    sizes="(max-width: 768px) 112px, 128px"
-                  />
-                </div>
-
-                {/* Dark Mode Photo */}
-                <div
-                  className={`absolute inset-0 w-full h-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                    currentTheme === "dark"
-                      ? "opacity-100 scale-100 rotate-0 z-10"
-                      : "opacity-0 scale-105 rotate-3 pointer-events-none z-0"
-                  }`}
-                  style={{ willChange: "transform, opacity" }}
-                >
-                  <Image
-                    src="/profile-dark.jpeg"
-                    alt="Orlando Fornolles Jr."
-                    fill
-                    priority
-                    className="object-cover object-center transition-transform duration-700 group-hover/photo:scale-105"
-                    sizes="(max-width: 768px) 112px, 128px"
-                  />
-                </div>
+                <AnimatePresence mode="popLayout" initial={false}>
+                  <motion.div
+                    key={currentTheme}
+                    initial={{ 
+                      opacity: 0, 
+                      x: currentTheme === "dark" ? "15%" : "-15%", 
+                      scale: 1.12, 
+                      rotate: currentTheme === "dark" ? 3 : -3,
+                      filter: "blur(4px) brightness(1.2)"
+                    }}
+                    animate={{ 
+                      opacity: 1, 
+                      x: "0%", 
+                      scale: 1, 
+                      rotate: 0,
+                      filter: "blur(0px) brightness(1)"
+                    }}
+                    exit={{ 
+                      opacity: 0, 
+                      x: currentTheme === "dark" ? "-15%" : "15%", 
+                      scale: 0.92, 
+                      rotate: currentTheme === "dark" ? -3 : 3,
+                      filter: "blur(4px) brightness(0.85)"
+                    }}
+                    transition={{ 
+                      duration: 0.75, 
+                      ease: [0.16, 1, 0.3, 1] 
+                    }}
+                    className="absolute inset-0 w-full h-full"
+                  >
+                    <Image
+                      src={currentTheme === "dark" ? "/profile-dark.jpeg" : "/profile-light.jpeg"}
+                      alt="Orlando Fornolles Jr."
+                      fill
+                      priority
+                      className="object-cover object-center transition-transform duration-700 group-hover/photo:scale-105"
+                      sizes="(max-width: 768px) 112px, 128px"
+                    />
+                  </motion.div>
+                </AnimatePresence>
 
                 {/* Anime Energy Slash Sweep */}
-                <div
+                <motion.div
                   key={`slash-${currentTheme}`}
-                  className={`absolute inset-0 pointer-events-none z-20 bg-gradient-to-r from-transparent via-cyan-400/35 to-transparent -skew-x-12 transition-transform duration-700 ease-out ${
-                    currentTheme === "dark" ? "translate-x-full" : "-translate-x-full"
-                  }`}
+                  initial={{ x: "-120%", opacity: 0.9 }}
+                  animate={{ x: "120%", opacity: 0 }}
+                  transition={{ duration: 0.65, delay: 0.05, ease: "easeOut" }}
+                  className="absolute inset-0 pointer-events-none z-20 bg-gradient-to-r from-transparent via-cyan-400/35 to-transparent -skew-x-12"
                 />
               </div>
 
