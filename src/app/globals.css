@@ -206,12 +206,12 @@ body {
   z-index: 1;
 }
 
-/* Disable standard CSS transitions during active view transitions natively and via custom classes */
-html:active-view-transition,
-html:active-view-transition *,
-.transition-to-dark,
-.transition-to-dark *,
-.transition-to-light,
-.transition-to-light * {
+/* Disable default root transitions during active view transitions */
+html:active-view-transition::view-transition-old(root),
+html:active-view-transition::view-transition-new(root),
+.transition-to-dark::view-transition-old(root),
+.transition-to-dark::view-transition-new(root),
+.transition-to-light::view-transition-old(root),
+.transition-to-light::view-transition-new(root) {
   transition: none !important;
 }
