@@ -43,7 +43,7 @@ const TECH_CATEGORIES = [
   {
     name: "Backend & APIs",
     icon: Cpu,
-    skills: ["Node.js", "Express", "REST APIs", "Firebase", "Supabase", "Cloudflare Workers"],
+    skills: ["Node.js", "Express", "PHP", "MySQL", "REST APIs", "Firebase", "Supabase", "Cloudflare Workers"],
   },
   {
     name: "Developer Tools",
