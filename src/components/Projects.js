@@ -78,7 +78,7 @@ export default function Projects() {
         {PROJECTS.map((project, idx) => (
           <div
             key={idx}
-            className={`group/project flex flex-col justify-between p-4 rounded border border-stone-200/60 dark:border-stone-900 bg-stone-100/10 dark:bg-stone-950/10 hover:bg-stone-100/20 dark:hover:bg-stone-950/20 transition-all duration-300 hover:border-stone-350 dark:hover:border-stone-750 hover:shadow-[0_2px_6px_rgba(0,0,0,0.015)] ${
+            className={`group/project flex flex-col justify-between p-4 rounded border border-stone-200/60 dark:border-slate-800 bg-stone-100/10 dark:bg-slate-900/30 hover:bg-stone-100/20 dark:hover:bg-slate-900/60 transition-colors duration-300 hover:border-stone-350 dark:hover:border-slate-700 ${
               idx === PROJECTS.length - 1 && PROJECTS.length % 2 !== 0
                 ? "sm:col-span-2"
                 : ""
@@ -87,7 +87,7 @@ export default function Projects() {
             <div>
               {/* Header: Number, Category & Actions */}
               <div className="flex justify-between items-center mb-2.5">
-                <span className="text-[10px] font-mono text-stone-400 dark:text-stone-500 uppercase tracking-wider flex items-center gap-1.5">
+                <span className="text-[10px] font-mono text-stone-400 dark:text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
                   <span className="font-serif italic font-bold text-[var(--accent)]">
                     {String(idx + 1).padStart(2, "0")}.
                   </span>
@@ -110,7 +110,7 @@ export default function Projects() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-stone-400 hover:text-[var(--accent)] dark:text-stone-500 dark:hover:text-[var(--accent)] transition-colors"
+                      className="text-stone-400 hover:text-[var(--accent)] dark:text-slate-400 dark:hover:text-[var(--accent)] transition-colors"
                       aria-label={`${project.title} GitHub`}
                     >
                       <Github className="h-3.5 w-3.5" />
@@ -121,7 +121,7 @@ export default function Projects() {
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-stone-400 hover:text-[var(--accent)] dark:text-stone-500 dark:hover:text-[var(--accent)] transition-colors flex items-center gap-0.5 group/link"
+                      className="text-stone-400 hover:text-[var(--accent)] dark:text-slate-400 dark:hover:text-[var(--accent)] transition-colors flex items-center gap-0.5 group/link"
                       aria-label={`${project.title} Live`}
                     >
                       <ExternalLink className="h-3.5 w-3.5 transition-transform duration-300 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
@@ -131,19 +131,19 @@ export default function Projects() {
               </div>
 
               {/* Title */}
-              <h3 className="text-sm font-bold text-stone-900 dark:text-stone-100 mb-1.5 font-sans group-hover/project:text-[var(--accent)] transition-colors">
+              <h3 className="text-sm font-bold text-stone-900 dark:text-slate-100 mb-1.5 font-sans group-hover/project:text-[var(--accent)] transition-colors">
                 {project.title}
               </h3>
 
               {/* Description */}
-              <p className="text-xs text-stone-500 dark:text-stone-400 leading-relaxed mb-4">
+              <p className="text-xs text-stone-500 dark:text-slate-300 leading-relaxed mb-4">
                 {project.description}
               </p>
 
               {/* Metrics */}
-              <div className="mb-4 space-y-1 border-t border-stone-200/50 dark:border-stone-900/60 pt-3 flex flex-col">
+              <div className="mb-4 space-y-1 border-t border-stone-200/50 dark:border-slate-800/80 pt-3 flex flex-col">
                 {project.metrics.map((metric, mIdx) => (
-                  <div key={mIdx} className="flex items-start gap-2 text-[10px] font-mono uppercase tracking-wider text-stone-500 dark:text-stone-400">
+                  <div key={mIdx} className="flex items-start gap-2 text-[10px] font-mono uppercase tracking-wider text-stone-500 dark:text-slate-400">
                     <span className="h-1 w-1 rounded-full bg-[var(--accent)] mt-1.5 flex-shrink-0" />
                     <span>{metric}</span>
                   </div>
@@ -156,7 +156,7 @@ export default function Projects() {
               {project.tech.map((t) => (
                 <span
                   key={t}
-                  className="px-1.5 py-0.5 text-[9px] font-mono rounded bg-stone-100/40 dark:bg-stone-900/40 border border-stone-200/40 dark:border-stone-900/80 text-stone-500 dark:text-stone-400"
+                  className="px-1.5 py-0.5 text-[9px] font-mono rounded bg-stone-100/40 dark:bg-slate-900/50 border border-stone-200/40 dark:border-slate-800 text-stone-500 dark:text-slate-400"
                 >
                   {t}
                 </span>

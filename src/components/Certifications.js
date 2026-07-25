@@ -62,21 +62,21 @@ export default function Certifications() {
           {CERTS.map((cert, idx) => (
             <div
               key={idx}
-              className={`flex items-start justify-between gap-3 p-3.5 rounded border border-stone-200/60 dark:border-stone-900 bg-stone-100/10 dark:bg-stone-950/10 hover:bg-stone-100/20 dark:hover:bg-stone-950/20 hover:border-stone-350 dark:hover:border-stone-750 transition-all duration-300 group/item ${
+              className={`flex items-start justify-between gap-3 p-3.5 rounded border border-stone-200/60 dark:border-slate-800 bg-stone-100/10 dark:bg-slate-900/30 hover:bg-stone-100/20 dark:hover:bg-slate-900/60 transition-colors duration-300 hover:border-stone-350 dark:hover:border-slate-700 group/item ${
                 idx === CERTS.length - 1 && CERTS.length % 2 !== 0
                   ? "md:col-span-2 md:mx-auto md:w-[calc(50%-6px)] w-full"
                   : ""
               }`}
             >
               <div className="flex gap-3">
-                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded bg-stone-100/40 dark:bg-stone-900/40 border border-stone-200 dark:border-stone-900 text-stone-400 dark:text-stone-500 group-hover/item:text-[var(--accent)] group-hover/item:border-[var(--accent)] dark:group-hover/item:text-[var(--accent)] dark:group-hover/item:border-[var(--accent)] transition-colors duration-300">
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded bg-stone-100/40 dark:bg-slate-900/50 border border-stone-200 dark:border-slate-800 text-stone-400 dark:text-slate-400 group-hover/item:text-[var(--accent)] group-hover/item:border-[var(--accent)] dark:group-hover/item:text-[var(--accent)] dark:group-hover/item:border-[var(--accent)] transition-colors duration-300">
                   <Award className="h-4 w-4" />
                 </div>
                 <div>
-                  <h3 className="text-xs font-bold text-stone-900 dark:text-stone-100 leading-snug group-hover/item:text-[var(--accent)] transition-colors">
+                  <h3 className="text-xs font-bold text-stone-900 dark:text-slate-100 leading-snug group-hover/item:text-[var(--accent)] transition-colors">
                     {cert.name}
                   </h3>
-                  <p className="text-[10px] font-mono text-stone-400 dark:text-stone-500 mt-1">
+                  <p className="text-[10px] font-mono text-stone-400 dark:text-slate-400 mt-1">
                     {cert.issuer} &middot; {cert.year}
                   </p>
                 </div>
@@ -87,7 +87,7 @@ export default function Certifications() {
                   href={cert.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-stone-400 hover:text-[var(--accent)] dark:text-stone-500 dark:hover:text-[var(--accent)] transition-colors flex-shrink-0 mt-0.5 group/link"
+                  className="text-stone-400 hover:text-[var(--accent)] dark:text-slate-400 dark:hover:text-[var(--accent)] transition-colors flex-shrink-0 mt-0.5 group/link"
                   title="Verify Certification"
                 >
                   <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />

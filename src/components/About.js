@@ -83,7 +83,7 @@ export function TechStackCard() {
                   {cat.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-1.5 py-0.5 text-[10px] font-mono rounded bg-stone-100/60 dark:bg-stone-900/60 border border-stone-200/50 dark:border-stone-800/80 text-stone-600 dark:text-stone-400"
+                      className="px-1.5 py-0.5 text-[10px] font-mono rounded bg-stone-100/60 dark:bg-slate-900/60 border border-stone-200/50 dark:border-slate-800 text-stone-600 dark:text-slate-300 transition-colors dark:hover:border-slate-700"
                     >
                       {skill}
                     </span>

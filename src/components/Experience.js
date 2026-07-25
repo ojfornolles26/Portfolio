@@ -63,7 +63,7 @@ export function ExperienceCard() {
           </h2>
         </div>
 
-        <div className="relative border-l border-stone-200/60 dark:border-stone-900 ml-1.5 pl-4 space-y-5">
+        <div className="relative border-l border-stone-200/60 dark:border-slate-800 ml-1.5 pl-4 space-y-5">
           {EXPERIENCE_ITEMS.map((item, idx) => (
             <div key={idx} className="relative group/timeline">
               {/* Dot - Ring design */}
@@ -71,7 +71,7 @@ export function ExperienceCard() {
               
               <div className="space-y-1.5">
                 <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-                  <h3 className="text-sm font-bold text-stone-900 dark:text-stone-100">
+                  <h3 className="text-sm font-bold text-stone-900 dark:text-slate-100">
                     <span>{item.role}</span>
                     {item.company && (
                       <span className="block sm:inline font-serif italic font-normal text-[var(--accent)] sm:ml-1 mt-0.5 sm:mt-0">
@@ -79,11 +79,11 @@ export function ExperienceCard() {
                       </span>
                     )}
                   </h3>
-                  <span className="text-[10px] font-mono text-stone-400 dark:text-stone-500 whitespace-nowrap">
+                  <span className="text-[10px] font-mono text-stone-400 dark:text-slate-400 whitespace-nowrap">
                     {item.period}
                   </span>
                 </div>
-                <ul className="list-disc pl-3.5 space-y-1 text-xs text-stone-600 dark:text-stone-300 leading-relaxed font-sans">
+                <ul className="list-disc pl-3.5 space-y-1 text-xs text-stone-600 dark:text-slate-300 leading-relaxed font-sans">
                   {item.bullets.map((b, bIdx) => (
                     <li key={bIdx}>{b}</li>
                   ))}
@@ -103,24 +103,24 @@ export function EducationCard() {
       <div>
         <div className="flex items-center gap-2 mb-4">
           <span className="h-1.5 w-1.5 rounded-full bg-[var(--accent)] transition-colors duration-300" />
-          <h2 className="text-xs font-mono uppercase tracking-widest text-stone-500 dark:text-stone-400">
+          <h2 className="text-xs font-mono uppercase tracking-widest text-stone-500 dark:text-slate-400">
             Education
           </h2>
         </div>
 
         <div className="space-y-4 pt-1">
           <div>
-            <h3 className="text-sm font-serif font-bold text-stone-900 dark:text-stone-100 leading-tight">
+            <h3 className="text-sm font-serif font-bold text-stone-900 dark:text-slate-100 leading-tight">
               BS in Information Technology
             </h3>
             <p className="text-xs text-[var(--accent)] mt-1 font-medium">
               Southwestern University PHINMA
             </p>
-            <p className="text-[10px] font-mono text-stone-400 dark:text-stone-500 mt-1">
+            <p className="text-[10px] font-mono text-stone-400 dark:text-slate-400 mt-1">
               Expected graduation: 2028
             </p>
           </div>
-          <p className="text-xs text-stone-600 dark:text-stone-300 leading-relaxed pt-3 border-t border-stone-200/50 dark:border-stone-900">
+          <p className="text-xs text-stone-600 dark:text-slate-300 leading-relaxed pt-3 border-t border-stone-200/50 dark:border-slate-800">
             Relevant coursework: Object-Oriented Programming, Data Structures &amp; Algorithms, Web Development, Database Management Systems, Software Architectures, and Mobile Application Development.
           </p>
         </div>

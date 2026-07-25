@@ -9,6 +9,7 @@ import { Calendar, Mail, MapPin, Sun, Moon, ArrowUpRight } from "lucide-react";
 import { Github, Linkedin } from "@/components/icons";
 
 // Components
+import StarfieldBackground from "@/components/StarfieldBackground";
 import { AboutCard, TechStackCard } from "@/components/About";
 import Projects from "@/components/Projects";
 import Certifications from "@/components/Certifications";
@@ -122,18 +123,19 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)] transition-colors duration-500 font-sans">
-      <main className="max-w-4xl mx-auto px-4 py-8 md:py-16 flex flex-col gap-6 relative">
+    <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)] transition-colors duration-500 font-sans relative">
+      <StarfieldBackground />
+      <main className="max-w-4xl mx-auto px-4 py-8 md:py-16 flex flex-col gap-6 relative z-10">
         
         {/* Minimalist Theme Toggle (Top Right) */}
         <div className="absolute top-6 right-4 md:top-12 md:right-6 z-50">
           <button
             onClick={handleThemeToggle}
-            className="h-8 w-8 flex items-center justify-center rounded-md border border-stone-200 dark:border-stone-900 bg-[var(--card-bg)] text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer shadow-[0_1px_2px_rgba(0,0,0,0.02)]"
+            className="h-8 w-8 flex items-center justify-center rounded-md border border-stone-200 dark:border-slate-800 bg-[var(--card-bg)] text-stone-600 dark:text-slate-300 hover:text-stone-900 dark:hover:text-slate-100 transition-colors cursor-pointer shadow-[0_1px_2px_rgba(0,0,0,0.02)]"
             aria-label="Toggle theme"
           >
             {currentTheme === "dark" ? (
-              <Sun className="h-4.5 w-4.5" />
+              <Sun className="h-4.5 w-4.5 text-sky-400" />
             ) : (
               <Moon className="h-4.5 w-4.5" />
             )}
@@ -152,15 +154,56 @@ export default function Home() {
           <motion.div variants={itemVariants} className="col-span-1 md:col-span-6">
             <div className="bento-card relative flex flex-col md:flex-row items-center md:items-start gap-6 h-full">
               
-              {/* Profile Photo */}
-              <div className="relative w-28 h-28 md:w-32 md:h-32 rounded border border-stone-200 dark:border-stone-900 bg-stone-100/30 overflow-hidden flex-shrink-0 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
-                <Image
-                  src="/profile1.jpg"
-                  alt="Orlando Fornolles Jr."
-                  fill
-                  priority
-                  className="object-cover object-center transition-transform duration-700 hover:scale-105"
-                  sizes="(max-width: 768px) 112px, 128px"
+              {/* Profile Photo - Anime Form-Switching Transformation */}
+              <div className="relative w-28 h-28 md:w-32 md:h-32 rounded border border-stone-200 dark:border-slate-800 bg-stone-100/30 dark:bg-slate-900/30 overflow-hidden flex-shrink-0 shadow-[0_1px_2px_rgba(0,0,0,0.02)] group/photo">
+                <AnimatePresence mode="popLayout" initial={false}>
+                  <motion.div
+                    key={currentTheme}
+                    initial={{ 
+                      opacity: 0, 
+                      x: currentTheme === "dark" ? "15%" : "-15%", 
+                      scale: 1.12, 
+                      rotate: currentTheme === "dark" ? 3 : -3,
+                      filter: "blur(4px) brightness(1.2)"
+                    }}
+                    animate={{ 
+                      opacity: 1, 
+                      x: "0%", 
+                      scale: 1, 
+                      rotate: 0,
+                      filter: "blur(0px) brightness(1)"
+                    }}
+                    exit={{ 
+                      opacity: 0, 
+                      x: currentTheme === "dark" ? "-15%" : "15%", 
+                      scale: 0.92, 
+                      rotate: currentTheme === "dark" ? -3 : 3,
+                      filter: "blur(4px) brightness(0.85)"
+                    }}
+                    transition={{ 
+                      duration: 0.75, 
+                      ease: [0.16, 1, 0.3, 1] 
+                    }}
+                    className="absolute inset-0 w-full h-full"
+                  >
+                    <Image
+                      src={currentTheme === "dark" ? "/profile-dark.jpeg" : "/profile-light.jpeg"}
+                      alt="Orlando Fornolles Jr."
+                      fill
+                      priority
+                      className="object-cover object-center transition-transform duration-700 group-hover/photo:scale-105"
+                      sizes="(max-width: 768px) 112px, 128px"
+                    />
+                  </motion.div>
+                </AnimatePresence>
+
+                {/* Anime Energy Slash Sweep */}
+                <motion.div
+                  key={`slash-${currentTheme}`}
+                  initial={{ x: "-120%", opacity: 0.9 }}
+                  animate={{ x: "120%", opacity: 0 }}
+                  transition={{ duration: 0.65, delay: 0.05, ease: "easeOut" }}
+                  className="absolute inset-0 pointer-events-none z-20 bg-gradient-to-r from-transparent via-cyan-400/35 to-transparent -skew-x-12"
                 />
               </div>
 
@@ -168,7 +211,7 @@ export default function Home() {
               <div className="flex-1 w-full min-w-0 flex flex-col justify-between h-full space-y-4 md:space-y-6 pt-1 text-center md:text-left">
                 <div className="space-y-2">
                   <div className="flex items-center justify-center md:justify-start gap-2">
-                    <h1 className="text-2xl md:text-3xl font-bold tracking-tight font-serif text-stone-900 dark:text-stone-100">
+                    <h1 className="text-2xl md:text-3xl font-bold tracking-tight font-serif text-stone-900 dark:text-slate-100">
                       Orlando Fornolles Jr.
                     </h1>
                     
@@ -198,25 +241,23 @@ export default function Home() {
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: 4, scale: 0.98 }}
                             transition={{ duration: 0.12, ease: "easeOut" }}
-                            className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-2.5 py-1 rounded bg-stone-900 dark:bg-stone-100 text-stone-100 dark:text-stone-900 text-[10px] font-mono tracking-wide shadow-md pointer-events-none z-50 select-none whitespace-nowrap"
+                            className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-2.5 py-1 rounded bg-stone-900 dark:bg-slate-100 text-stone-100 dark:text-slate-950 text-[10px] font-mono tracking-wide shadow-md pointer-events-none z-50 select-none whitespace-nowrap"
                           >
                             Verified by Orlando himself
-                            <div className="absolute top-full left-1/2 -translate-x-1/2 border-[4px] border-transparent border-t-stone-900 dark:border-t-stone-100" />
+                            <div className="absolute top-full left-1/2 -translate-x-1/2 border-[4px] border-transparent border-t-stone-900 dark:border-t-slate-100" />
                           </motion.div>
                         )}
                       </AnimatePresence>
                     </div>
                   </div>
 
-                  <div className="mt-1.5 mb-2.5">
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded border border-stone-200 dark:border-stone-850 bg-stone-100/60 dark:bg-stone-900/50 text-[10px] font-mono font-bold uppercase tracking-wider text-stone-600 dark:text-stone-300">
-                      Software Developer
-                    </span>
-                  </div>
+                  <p className="text-sm md:text-base font-mono font-semibold tracking-wide text-[var(--accent)] mt-1">
+                    Software Developer
+                  </p>
                 </div>
 
                 {/* Location Detail */}
-                <div className="flex items-center justify-center md:justify-start gap-1.5 text-xs text-stone-500 dark:text-stone-400 font-medium">
+                <div className="flex items-center justify-center md:justify-start gap-1.5 text-xs text-stone-500 dark:text-slate-400 font-medium">
                   <MapPin className="h-4 w-4 text-[var(--accent)]" />
                   <span>Cebu City, Philippines</span>
                 </div>
@@ -226,10 +267,10 @@ export default function Home() {
                   
                   {/* Primary actions row */}
                   <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 flex-1 sm:flex-initial sm:flex-shrink-0">
-                    {/* Send Email (Primary - Solid Green) */}
+                    {/* Send Email (Primary Button - White text in light mode, dark text in dark mode) */}
                     <button
                       onClick={handleEmailClick}
-                      className="flex h-9 flex-shrink-0 items-center justify-center rounded bg-[var(--accent)] hover:bg-[var(--accent-hover)] px-4 text-xs font-bold text-white dark:text-stone-950 transition-colors gap-2 cursor-pointer shadow-[0_1px_2px_rgba(0,0,0,0.05)] w-full sm:w-auto min-w-[145px]"
+                      className="flex h-9 flex-shrink-0 items-center justify-center rounded bg-[var(--accent)] hover:bg-[var(--accent-hover)] px-4 text-xs font-bold text-white dark:text-slate-950 transition-colors gap-2 cursor-pointer shadow-[0_1px_2px_rgba(0,0,0,0.05)] w-full sm:w-auto min-w-[145px]"
                     >
                       <AnimatePresence mode="wait" initial={false}>
                         {copiedEmail ? (
@@ -262,14 +303,14 @@ export default function Home() {
                       </AnimatePresence>
                     </button>
 
-                    {/* Schedule Meeting (Secondary - Outlined) */}
+                    {/* Schedule Meeting (Secondary Button) */}
                     <a
                       href="https://calendar.google.com/calendar/render?action=TEMPLATE&add=orlandojr058@gmail.com&text=Meeting%20with%20Orlando%20Fornolles%20Jr."
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex h-9 flex-shrink-0 items-center justify-center rounded border border-stone-200 dark:border-stone-850 bg-white/40 dark:bg-stone-900/40 text-xs font-bold text-stone-700 dark:text-stone-300 hover:bg-stone-100/50 dark:hover:bg-stone-900/80 transition-colors gap-2 cursor-pointer w-full sm:w-auto px-4.5"
+                      className="flex h-9 flex-shrink-0 items-center justify-center rounded border border-stone-300/80 dark:border-slate-800 bg-white/70 dark:bg-slate-900/40 text-xs font-bold text-stone-800 dark:text-slate-200 hover:bg-stone-100 dark:hover:bg-slate-800/60 dark:hover:border-slate-700 transition-colors gap-2 cursor-pointer w-full sm:w-auto px-4.5"
                     >
-                      <Calendar className="h-3.5 w-3.5 flex-shrink-0" />
+                      <Calendar className="h-3.5 w-3.5 flex-shrink-0 text-stone-600 dark:text-slate-300" />
                       <span>Schedule a Session</span>
                     </a>
                   </div>
@@ -280,7 +321,7 @@ export default function Home() {
                       href="https://www.linkedin.com/in/ojfornolles26"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex h-9 flex-1 sm:flex-initial sm:w-9 items-center justify-center rounded border border-stone-200 dark:border-stone-850 bg-white/40 dark:bg-stone-900/40 text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100/50 dark:hover:bg-stone-900/80 transition-colors cursor-pointer gap-2 sm:gap-0 sm:px-0"
+                      className="flex h-9 flex-1 sm:flex-initial sm:w-9 items-center justify-center rounded border border-stone-300/80 dark:border-slate-800 bg-white/70 dark:bg-slate-900/40 text-stone-700 dark:text-slate-300 hover:text-stone-950 dark:hover:text-slate-100 hover:bg-stone-100 dark:hover:bg-slate-800/60 dark:hover:border-slate-700 transition-colors cursor-pointer gap-2 sm:gap-0 sm:px-0"
                       aria-label="LinkedIn Profile"
                     >
                       <Linkedin className="h-4 w-4 flex-shrink-0" />
@@ -291,7 +332,7 @@ export default function Home() {
                       href="https://github.com/ojfornolles26"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex h-9 flex-1 sm:flex-initial sm:w-9 items-center justify-center rounded border border-stone-200 dark:border-stone-850 bg-white/40 dark:bg-stone-900/40 text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100/50 dark:hover:bg-stone-900/80 transition-colors cursor-pointer gap-2 sm:gap-0 sm:px-0"
+                      className="flex h-9 flex-1 sm:flex-initial sm:w-9 items-center justify-center rounded border border-stone-300/80 dark:border-slate-800 bg-white/70 dark:bg-slate-900/40 text-stone-700 dark:text-slate-300 hover:text-stone-950 dark:hover:text-slate-100 hover:bg-stone-100 dark:hover:bg-slate-800/60 dark:hover:border-slate-700 transition-colors cursor-pointer gap-2 sm:gap-0 sm:px-0"
                       aria-label="GitHub Profile"
                     >
                       <Github className="h-4 w-4 flex-shrink-0" />
