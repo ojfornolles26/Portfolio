@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ArrowUp } from "lucide-react";
 
 import { AboutCard, TechStackCard } from "@/components/About";
 import Projects from "@/components/Projects";
@@ -53,14 +53,26 @@ export default function Home() {
       {/* Background Noise Canvas */}
       <NoiseCanvas />
 
-      {/* Viewport Frame Border Lines (p5aholic style) */}
-      <div className="fixed inset-2 sm:inset-3 md:inset-5 pointer-events-none z-40 border border-[var(--foreground)] opacity-15" />
+      {/* Viewport Frame Border Lines (p5aholic style) - Hidden on mobile */}
+      <div className="hidden md:block fixed inset-5 pointer-events-none z-40 border border-[var(--foreground)] opacity-15" />
 
       {/* Main Grid Layout Container */}
-      <div className="h-full w-full p-4 sm:p-6 md:p-12 flex flex-col md:flex-row justify-between gap-6 md:gap-8 relative z-10">
+      <div className="h-full w-full p-4 sm:p-6 md:p-12 flex flex-col md:flex-row justify-between gap-0 md:gap-8 relative z-10">
         
-        {/* Left Fixed Sidebar Column */}
-        <aside className="w-full md:w-80 shrink-0 flex flex-col justify-between h-auto md:h-full pt-1 md:pt-2 pb-1 md:pb-2 font-mono z-20">
+        {/* Mobile Header (Hidden on Desktop) */}
+        <div className="md:hidden flex items-center justify-between w-full pb-4 mb-4 border-b border-[var(--foreground)]/10 z-30">
+          <div>
+            <h1 className="text-2xl font-extralight tracking-tight leading-none text-[var(--foreground)]">
+              Orlando Jr.
+            </h1>
+            <p className="text-xs uppercase tracking-widest text-[var(--muted)] mt-1 font-mono">
+              Software Developer
+            </p>
+          </div>
+        </div>
+
+        {/* Left Fixed Sidebar Column (Hidden on Mobile) */}
+        <aside className="hidden md:flex w-full md:w-80 shrink-0 flex-col justify-between h-auto md:h-full pt-1 md:pt-2 pb-1 md:pb-2 font-mono z-20">
           
           {/* Top: Brand Header & SPA Nav Menu */}
           <div className="space-y-4 md:space-y-8">
@@ -77,7 +89,7 @@ export default function Home() {
 
             {/* SPA Navigation Dot Menu (Responsive: horizontal scroll on mobile, vertical list on desktop) */}
             <nav className="pt-1 md:pt-2">
-              <ul className="flex md:flex-col items-center md:items-start overflow-x-auto no-scrollbar gap-4 md:gap-0 md:space-y-2.5 font-mono text-xs md:text-sm py-2 md:py-0 border-y md:border-y-0 border-[var(--foreground)]/10">
+              <ul className="flex flex-col items-start space-y-2.5 font-mono text-sm">
                 {navItems.map((item) => {
                   const isActive = activeTab === item.id;
                   return (
@@ -92,9 +104,9 @@ export default function Home() {
                             initial={{ scale: 0.5, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             transition={{ duration: 0.2 }}
-                            className="text-xs md:text-sm text-[var(--foreground)] font-bold inline-block"
+                            className="text-sm text-[var(--foreground)] font-bold inline-block"
                           >
-                            ● <span className="md:hidden text-xs font-normal ml-1">{item.label}</span>
+                            ● 
                           </motion.span>
                         ) : (
                           <span className="text-[var(--muted)] hover:text-[var(--foreground)] opacity-70 hover:opacity-100 transition-opacity duration-200">
@@ -110,17 +122,17 @@ export default function Home() {
           </div>
 
           {/* Bottom: Copyright (Desktop) */}
-          <div className="hidden md:block pt-6 border-t border-[var(--foreground)]/15">
+          <div className="pt-6 border-t border-[var(--foreground)]/15">
             <div className="text-[10px] font-mono text-[var(--muted)] tracking-wider">
               &copy; {new Date().getFullYear()} Orlando Jr. Fornolles
             </div>
           </div>
         </aside>
 
-        {/* Right Dynamic Content View Canvas */}
+        {/* Right Dynamic Content View Canvas (Desktop) */}
         <main
           ref={mainRef}
-          className="flex-1 w-full h-auto md:h-full overflow-y-auto no-scrollbar pr-0 md:pr-8 pt-2 pb-16 md:pb-24 max-w-3xl font-mono scroll-smooth"
+          className="hidden md:block flex-1 w-full h-full overflow-y-auto no-scrollbar pr-8 pt-2 pb-24 max-w-3xl font-mono scroll-smooth"
         >
           <AnimatePresence mode="wait">
             <motion.div
@@ -182,7 +194,7 @@ export default function Home() {
               {/* CONTACT VIEW */}
               {activeTab === "contact" && (
                 <div className="py-4 md:py-6 space-y-6 md:space-y-8 font-mono">
-                  <div className="editorial-header font-mono">Let's Connect</div>
+                  <div className="editorial-header font-mono">Let&apos;s Connect</div>
                   <p className="text-lg sm:text-xl md:text-2xl font-extralight leading-relaxed font-mono">
                     Interested in building together, scheduling a chat, or exploring AI?
                   </p>
@@ -243,13 +255,112 @@ export default function Home() {
           </AnimatePresence>
         </main>
 
-        {/* Bottom Copyright (Mobile Footer) */}
-        <div className="block md:hidden pt-4 border-t border-[var(--foreground)]/15 text-center">
-          <div className="text-[10px] font-mono text-[var(--muted)] tracking-wider">
-            &copy; {new Date().getFullYear()} Orlando Jr. Fornolles
-          </div>
-        </div>
+        {/* Right Dynamic Content View Canvas (Mobile Single Page) */}
+        <main className="md:hidden flex-1 w-full h-auto overflow-y-auto no-scrollbar pt-2 pb-16 font-mono scroll-smooth space-y-16">
+          <div className="space-y-8 py-2 font-mono">
+            <div className="space-y-4">
+              <p className="text-xl font-extralight leading-snug text-[var(--foreground)] tracking-tight font-mono">
+                I build clean, focused web applications with React and modern web tools. Driven by good user experience, simple code, and continuous learning.
+              </p>
 
+              <p className="text-xs text-[var(--muted)] leading-relaxed font-mono">
+                Currently contributing as a Software Developer Intern at SugboDoc Technologies and AI Engineer Intern at FlyRank AI, while empowering a 150+ student developer community as COO of SWUdevs.
+              </p>
+            </div>
+          </div>
+
+          <div className="py-2 font-mono">
+            <Projects />
+          </div>
+
+          <div className="space-y-12 py-2 font-mono">
+            <AboutCard />
+            <EducationCard />
+            <Certifications />
+          </div>
+
+          <div className="py-2 editorial-section font-mono">
+            <div className="editorial-header">How I Build</div>
+            <div className="pt-2 font-mono">
+              <TechStackCard />
+            </div>
+          </div>
+
+          <div className="py-2 font-mono">
+            <ExperienceCard />
+          </div>
+
+          <div className="py-4 space-y-6 font-mono">
+            <div className="editorial-header font-mono">Let&apos;s Connect</div>
+            <p className="text-lg font-extralight leading-relaxed font-mono">
+              Interested in building together, scheduling a chat, or exploring AI?
+            </p>
+
+            <div className="space-y-3 pt-2 font-mono text-xs">
+              <div className="flex flex-col gap-1">
+                <span className="text-[var(--muted)] w-24 shrink-0">Email:</span>
+                <a
+                  href="mailto:orlandojr058@gmail.com"
+                  className="underline underline-offset-4 hover:text-[var(--accent)] transition-colors break-all"
+                >
+                  orlandojr058@gmail.com
+                </a>
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <span className="text-[var(--muted)] w-24 shrink-0">Calendar:</span>
+                <a
+                  href="https://calendar.google.com/calendar/render?action=TEMPLATE&add=orlandojr058@gmail.com&text=Meeting%20with%20Orlando%20Fornolles%20Jr."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-4 hover:text-[var(--accent)] transition-colors flex items-center gap-1"
+                >
+                  <span>Book Google Calendar Meeting</span>
+                  <ArrowUpRight className="h-3 w-3 shrink-0" />
+                </a>
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <span className="text-[var(--muted)] w-24 shrink-0">LinkedIn:</span>
+                <a
+                  href="https://linkedin.com/in/ojfornolles26"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-4 hover:text-[var(--accent)] transition-colors flex items-center gap-1 break-all"
+                >
+                  <span>linkedin.com/in/ojfornolles26</span>
+                  <ArrowUpRight className="h-3 w-3 shrink-0" />
+                </a>
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <span className="text-[var(--muted)] w-24 shrink-0">GitHub:</span>
+                <a
+                  href="https://github.com/ojfornolles26"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-4 hover:text-[var(--accent)] transition-colors flex items-center gap-1 break-all"
+                >
+                  <span>github.com/ojfornolles26</span>
+                  <ArrowUpRight className="h-3 w-3 shrink-0" />
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div className="pt-8 border-t border-[var(--foreground)]/15 flex flex-col items-center gap-4">
+            <button 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="p-3 rounded-full border border-[var(--foreground)]/15 text-[var(--foreground)] hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-all active:scale-95"
+              aria-label="Scroll to top"
+            >
+              <ArrowUp size={20} strokeWidth={1.5} />
+            </button>
+            <div className="text-[10px] font-mono text-[var(--muted)] tracking-wider">
+              &copy; {new Date().getFullYear()} Orlando Jr. Fornolles
+            </div>
+          </div>
+        </main>
       </div>
     </div>
   );
