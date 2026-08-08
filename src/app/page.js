@@ -20,20 +20,23 @@ export default function Home() {
 
   useEffect(() => {
     setMounted(true);
+
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleTabChange = (tabId) => {
     setActiveTab(tabId);
     if (mainRef.current) {
       mainRef.current.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  };
-
-  const handleMobileScroll = (e) => {
-    if (e.target.scrollTop > 20) {
-      setIsScrolled(true);
-    } else {
-      setIsScrolled(false);
     }
   };
 
@@ -265,10 +268,7 @@ export default function Home() {
         </main>
 
         {/* Right Dynamic Content View Canvas (Mobile Single Page) */}
-        <main 
-          className="md:hidden flex-1 w-full h-auto overflow-y-auto no-scrollbar pt-2 pb-16 font-mono scroll-smooth space-y-16"
-          onScroll={handleMobileScroll}
-        >
+        <main className="md:hidden flex-1 w-full h-auto overflow-y-auto no-scrollbar pt-2 pb-16 font-mono scroll-smooth space-y-16">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
