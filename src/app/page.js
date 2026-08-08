@@ -24,8 +24,6 @@ export default function Home() {
     const handleScroll = () => {
       if (window.scrollY > 20) {
         setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
       }
     };
 
