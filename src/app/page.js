@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUpRight, ArrowUp } from "lucide-react";
+import { ArrowUpRight, ArrowUp, ArrowDown } from "lucide-react";
 
 import { AboutCard, TechStackCard } from "@/components/About";
 import Projects from "@/components/Projects";
@@ -15,6 +15,7 @@ export default function Home() {
   const [mounted, setMounted] = useState(false);
   const [showSplash, setShowSplash] = useState(true);
   const [activeTab, setActiveTab] = useState("home");
+  const [isScrolled, setIsScrolled] = useState(false);
   const mainRef = useRef(null);
 
   useEffect(() => {
@@ -25,6 +26,14 @@ export default function Home() {
     setActiveTab(tabId);
     if (mainRef.current) {
       mainRef.current.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
+  const handleMobileScroll = (e) => {
+    if (e.target.scrollTop > 20) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
     }
   };
 
@@ -256,7 +265,10 @@ export default function Home() {
         </main>
 
         {/* Right Dynamic Content View Canvas (Mobile Single Page) */}
-        <main className="md:hidden flex-1 w-full h-auto overflow-y-auto no-scrollbar pt-2 pb-16 font-mono scroll-smooth space-y-16">
+        <main 
+          className="md:hidden flex-1 w-full h-auto overflow-y-auto no-scrollbar pt-2 pb-16 font-mono scroll-smooth space-y-16"
+          onScroll={handleMobileScroll}
+        >
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -273,6 +285,29 @@ export default function Home() {
                 Currently contributing as a Software Developer Intern at SugboDoc Technologies and AI Engineer Intern at FlyRank AI, while empowering a 150+ student developer community as COO of SWUdevs.
               </p>
             </div>
+
+            {/* Scroll Indicator */}
+            <AnimatePresence>
+              {!isScrolled && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="flex justify-center pt-16 pb-8"
+                >
+                  <motion.div
+                    animate={{ y: [0, 10, 0] }}
+                    transition={{ 
+                      duration: 1.5, 
+                      repeat: Infinity, 
+                      ease: "easeInOut" 
+                    }}
+                  >
+                    <ArrowDown className="h-5 w-5 text-[var(--muted)] opacity-50" />
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
 
           <motion.div 
