@@ -11,32 +11,21 @@
   --color-muted-light: var(--muted-light);
   --color-border-custom: var(--border);
   --color-card-custom: var(--card-bg);
+  --color-accent-fg: var(--accent-fg);
 }
 
 :root {
-  color-scheme: light;
-  --background: #f5f2eb; /* Warm eye-friendly paper-cream light background */
-  --foreground: #292524; /* Softer stone-800 for less contrast glare */
-  --muted: #78716c; /* stone-500 */
-  --muted-light: #e4dfd5; /* Softer cream-stone-200 */
-  --accent: #2e5a44; /* Premium Deep Forest Green as 10% Accent */
-  --accent-hover: #1e3d2e; /* Deep forest green hover color */
-  --border: #e4dfd5; /* Softer blending borders */
-  --card-bg: #faf8f5; /* Solid warm paper card background */
-  --scroll-thumb: #d2cbbe; /* Soft paper-matching scroll thumb */
-}
-
-.dark {
   color-scheme: dark;
-  --background: #060714; /* Midnight Dark Space */
-  --foreground: #f1f5f9; /* Slate-50 */
-  --muted: #94a3b8; /* Slate-400 */
-  --muted-light: #0f172a; /* Slate-900 */
-  --accent: #38bdf8; /* Clean Sky Blue Accent */
-  --accent-hover: #0284c7; /* Sky Blue Hover */
-  --border: #1e293b; /* Subtle Slate Border */
-  --card-bg: rgba(15, 23, 42, 0.85); /* Glassy dark slate card background */
-  --scroll-thumb: #334155; /* Slate scroll thumb */
+  --background: #111111; /* Ink Black */
+  --foreground: #faf9f6; /* Off-white Paper */
+  --muted: #aaaaaa; /* Pencil Grey */
+  --muted-light: #222222; /* Dark panel */
+  --accent: #faf9f6; /* Bold Paper */
+  --accent-hover: #cccccc;
+  --border: #faf9f6; /* Strong Paper Border */
+  --card-bg: #1a1a1a;
+  --scroll-thumb: #444444;
+  --accent-fg: #111111;
 }
 
 html {
@@ -46,8 +35,18 @@ html {
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   overflow-x: hidden;
+}
+
+body, body * {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+}
+
+/* Framed border lines */
+.frame-border {
+  border-color: var(--foreground);
+  opacity: 0.15;
 }
 
 /* Custom Editorial Scrollbar */
@@ -79,34 +78,22 @@ body {
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-/* Bento card styling */
-.bento-card {
-  border: 1px solid var(--border);
-  background-color: var(--card-bg);
-  padding: 1.25rem;
-  border-radius: 0.5rem; /* Sharper rounded-lg corner for structured editorial feel */
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.01);
+.editorial-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-@media (min-width: 768px) {
-  .bento-card {
-    padding: 1.5rem;
-  }
-}
-
-.bento-card:hover {
-  border-color: var(--accent); /* Fade to accent color instead of foreground */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-}
-
-.dark .bento-card {
-  backdrop-filter: blur(12px);
-}
-
-.dark .bento-card:hover {
-  border-color: #475569; /* Simple clean slate border on hover */
-  box-shadow: none;
+.editorial-header {
+  width: 100%;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  color: var(--foreground);
 }
 
 /* Calm Pulse Animation for Status */

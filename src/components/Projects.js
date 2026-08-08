@@ -1,166 +1,118 @@
 "use client";
 
-import { ExternalLink } from "lucide-react";
+import { useState } from "react";
+import { ExternalLink, ArrowUpRight } from "lucide-react";
 import { Github } from "./icons";
 
 const PROJECTS = [
   {
     title: "Filo",
-    category: "Web App / Productivity",
+    subtitle: "2025 / React 19 / Privacy Document Workspace",
+    category: "Productivity",
     description:
-      "React 19 document workspace and offline-first PWA with modular components for batch format conversion (PNG, JPEG, WebP), high-DPI canvas cropping, local PDF audio reading, and offline text/Markdown extraction. Processes files 100% client-side for absolute data privacy.",
-    tech: ["React", "Vite", "Tailwind CSS", "jsPDF", "pdfjs-dist", "JSZip", "PWA", "Motion"],
+      "React 19 document workspace & offline-first PWA with modular tools for batch format conversion (PNG, JPEG, WebP), high-DPI canvas cropping, local PDF audio reading, and offline text extraction. 100% client-side processing.",
+    tech: ["React", "Vite", "Tailwind CSS", "jsPDF", "PWA"],
     github: "https://github.com/ojfornolles26/Filo",
     live: "https://filo-5iot.onrender.com/",
-    metrics: [
-      "100% Local Offline PWA Processing",
-      "Local PDF Text & Audio Reader",
-      "Format Converter (PNG/JPEG/WebP)",
-      "High-DPI Canvas Cropper & Editor",
-    ],
   },
   {
     title: "Signity",
-    category: "Web App / Productivity",
+    subtitle: "2025 / React / Digital Signature Engine",
+    category: "Utility",
     description:
-      "Privacy-first React application for digital signatures with dual creator modes: hand-drawn signing via HTML5 Canvas with real-time useRef state synchronization, and typed calligraphy with dynamic font styling. Features high-precision curve smoothing and pixel-based auto-cropping for transparent PNG export.",
-    tech: ["React", "Vite", "JavaScript", "Tailwind CSS", "Motion", "HTML5 Canvas", "Google Fonts"],
+      "Privacy-first React application for digital signatures with dual creator modes: hand-drawn signing via HTML5 Canvas with real-time useRef state sync, and typed calligraphy with dynamic font styling.",
+    tech: ["React", "Vite", "HTML5 Canvas", "Tailwind CSS"],
     github: "https://github.com/ojfornolles26/Signity",
     live: "https://signity-b8l8.onrender.com/",
-    metrics: [
-      "Dual Hand-Drawn & Typed Modes",
-      "6 Calligraphy & Cursive Font Styles",
-      "6 Premium Ink Colors & Pen Controls",
-      "Pixel-Based Auto-Cropped PNG Export",
-    ],
   },
   {
     title: "Embraze",
-    category: "Web App / Community Safety",
+    subtitle: "2025 / React / Community Safety Map",
+    category: "Community Safety",
     description:
-      "Community-driven safety and hazard reporting React application for Cebu with an interactive Leaflet map featuring z-index layering and opacity aging. Includes photo upload with canvas compression, thumbs voting verification, geolocation capture, localStorage persistence, and social-media-style incident detail views with dark/light theming.",
-    tech: ["React", "Vite", "JavaScript", "Tailwind CSS", "Leaflet", "Lucide React", "Geolocation API", "Canvas API"],
+      "Community safety & hazard reporting application for Cebu with an interactive Leaflet map featuring z-index layering and opacity aging. Includes photo compression, thumbs voting, and dark/light theming.",
+    tech: ["React", "Vite", "Leaflet", "Geolocation API"],
     github: "https://github.com/ojfornolles26/Embraze",
-    metrics: [
-      "Interactive Leaflet Map with Opacity Aging",
-      "Photo Upload with Canvas Compression",
-      "Thumbs Voting Verification System",
-      "LocalStorage Persistence & Dark Mode",
-    ],
   },
   {
     title: "Portfolio",
-    category: "Web App / Portfolio",
+    subtitle: "2026 / Next.js 16 / Minimalist Web App",
+    category: "Portfolio",
     description:
-      "Next.js 16 portfolio built with React 19, featuring 6 reusable components, data-driven rendering, Framer Motion animations with AnimatePresence, accessible semantic HTML (aria-labels, heading hierarchy), dark/light theme toggling, and a responsive bento grid layout.",
-    tech: ["React", "Next.js", "JavaScript", "Tailwind CSS", "Motion", "Lucide React"],
+      "Next.js 16 portfolio built with React 19, featuring full-screen SPA view switcher, custom canvas particle dither texture, theme modes (Light/Dark/Ember/Mono), and accessible layout architecture.",
+    tech: ["React 19", "Next.js 16", "Tailwind CSS", "Framer Motion"],
     github: "https://github.com/ojfornolles26/Portfolio",
-    metrics: [
-      "Editorial-Inspired Typography",
-      "Responsive Bento Grid Layout",
-      "Framer Motion Micro-Animations",
-      "Static Page Optimization",
-    ],
   },
 ];
 
 export default function Projects() {
-  return (
-    <div className="bento-card">
-      <div className="flex items-center gap-2 mb-6">
-        <span className="h-1.5 w-1.5 rounded-full bg-[var(--accent)] transition-colors duration-300" />
-        <h2 className="text-xs font-mono uppercase tracking-widest text-stone-500 dark:text-stone-400">
-          Selected Projects
-        </h2>
-      </div>
+  const [hoveredIdx, setHoveredIdx] = useState(null);
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+  return (
+    <div className="editorial-section">
+      <div className="editorial-header">What I've Built</div>
+      <div className="pt-4 flex flex-col gap-10">
         {PROJECTS.map((project, idx) => (
           <div
             key={idx}
-            className={`group/project flex flex-col justify-between p-4 rounded border border-stone-200/60 dark:border-slate-800 bg-stone-100/10 dark:bg-slate-900/30 hover:bg-stone-100/20 dark:hover:bg-slate-900/60 transition-colors duration-300 hover:border-stone-350 dark:hover:border-slate-700 ${
-              idx === PROJECTS.length - 1 && PROJECTS.length % 2 !== 0
-                ? "sm:col-span-2"
-                : ""
-            }`}
+            onMouseEnter={() => setHoveredIdx(idx)}
+            onMouseLeave={() => setHoveredIdx(null)}
+            className="group relative border-b border-[var(--border)]/20 pb-8 transition-colors"
           >
-            <div>
-              {/* Header: Number, Category & Actions */}
-              <div className="flex justify-between items-center mb-2.5">
-                <span className="text-[10px] font-mono text-stone-400 dark:text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-                  <span className="font-serif italic font-bold text-[var(--accent)]">
-                    {String(idx + 1).padStart(2, "0")}.
-                  </span>
-                  <span>
-                    {project.category.includes(" (") ? (
-                      <>
-                        {project.category.split(" (")[0]}{" "}
-                        <span className="opacity-60">
-                          ({project.category.split(" (")[1]}
-                        </span>
-                      </>
-                    ) : (
-                      project.category
-                    )}
-                  </span>
-                </span>
-                <div className="flex items-center gap-2.5">
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-stone-400 hover:text-[var(--accent)] dark:text-slate-400 dark:hover:text-[var(--accent)] transition-colors"
-                      aria-label={`${project.title} GitHub`}
-                    >
-                      <Github className="h-3.5 w-3.5" />
-                    </a>
-                  )}
-                  {project.live && (
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-stone-400 hover:text-[var(--accent)] dark:text-slate-400 dark:hover:text-[var(--accent)] transition-colors flex items-center gap-0.5 group/link"
-                      aria-label={`${project.title} Live`}
-                    >
-                      <ExternalLink className="h-3.5 w-3.5 transition-transform duration-300 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
-                    </a>
-                  )}
-                </div>
-              </div>
-
-              {/* Title */}
-              <h3 className="text-sm font-bold text-stone-900 dark:text-slate-100 mb-1.5 font-sans group-hover/project:text-[var(--accent)] transition-colors">
+            <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-2">
+              {/* Large Minimalist Title (Keita Yamada Style) */}
+              <h3 className="text-3xl md:text-5xl font-extralight tracking-tight text-[var(--foreground)] group-hover:opacity-80 transition-opacity">
                 {project.title}
               </h3>
 
-              {/* Description */}
-              <p className="text-xs text-stone-500 dark:text-slate-300 leading-relaxed mb-4">
-                {project.description}
-              </p>
-
-              {/* Metrics */}
-              <div className="mb-4 space-y-1 border-t border-stone-200/50 dark:border-slate-800/80 pt-3 flex flex-col">
-                {project.metrics.map((metric, mIdx) => (
-                  <div key={mIdx} className="flex items-start gap-2 text-[10px] font-mono uppercase tracking-wider text-stone-500 dark:text-slate-400">
-                    <span className="h-1 w-1 rounded-full bg-[var(--accent)] mt-1.5 flex-shrink-0" />
-                    <span>{metric}</span>
-                  </div>
-                ))}
+              {/* Action Links */}
+              <div className="flex items-center gap-4 text-xs font-mono text-[var(--muted)]">
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 hover:text-[var(--foreground)] transition-colors"
+                  >
+                    <span>GitHub</span>
+                    <ArrowUpRight className="h-3 w-3" />
+                  </a>
+                )}
+                {project.live && (
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 hover:text-[var(--foreground)] transition-colors font-bold"
+                  >
+                    <span>Live Demo</span>
+                    <ExternalLink className="h-3 w-3" />
+                  </a>
+                )}
               </div>
             </div>
 
-            {/* Tech Tags */}
-            <div className="flex flex-wrap gap-1 mt-auto pt-2">
-              {project.tech.map((t) => (
-                <span
-                  key={t}
-                  className="px-1.5 py-0.5 text-[9px] font-mono rounded bg-stone-100/40 dark:bg-slate-900/50 border border-stone-200/40 dark:border-slate-800 text-stone-500 dark:text-slate-400"
-                >
-                  {t}
-                </span>
-              ))}
+            {/* Subtitle / Metadata */}
+            <p className="text-xs font-mono text-[var(--muted)] mt-2">
+              {project.subtitle}
+            </p>
+
+            {/* Expanded Description & Tech Badges */}
+            <div className="mt-4 max-w-xl space-y-3">
+              <p className="text-sm text-[var(--foreground)]/80 leading-relaxed font-sans">
+                {project.description}
+              </p>
+
+              <div className="flex flex-wrap gap-2 pt-1 font-mono text-[10px]">
+                {project.tech.map((t, i) => (
+                  <span
+                    key={i}
+                    className="px-2 py-0.5 border border-[var(--border)]/30 text-[var(--muted)] rounded-sm"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         ))}

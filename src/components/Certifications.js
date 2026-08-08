@@ -1,6 +1,6 @@
 "use client";
 
-import { Award, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 const CERTS = [
   {
@@ -49,53 +49,41 @@ const CERTS = [
 
 export default function Certifications() {
   return (
-    <div className="bento-card">
-      <div>
-        <div className="flex items-center gap-2 mb-6">
-          <span className="h-1.5 w-1.5 rounded-full bg-[var(--accent)] transition-colors duration-300" />
-          <h2 className="text-xs font-mono uppercase tracking-widest text-stone-500 dark:text-stone-400">
-            Certifications
-          </h2>
-        </div>
+    <div className="editorial-section font-mono">
+      <div className="editorial-header font-mono">Proofs of Mastery</div>
+      <div className="pt-2 flex flex-col divide-y divide-[var(--foreground)]/15">
+        {CERTS.map((cert, idx) => (
+          <div
+            key={idx}
+            className="py-3.5 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 group transition-colors"
+          >
+            <div className="flex items-baseline gap-3">
+              <span className="text-[10px] text-[var(--muted)] opacity-60 font-mono">
+                {String(idx + 1).padStart(2, "0")}.
+              </span>
+              <span className="text-xs md:text-sm font-normal text-[var(--foreground)] group-hover:opacity-80 transition-opacity font-mono">
+                {cert.name}
+              </span>
+            </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          {CERTS.map((cert, idx) => (
-            <div
-              key={idx}
-              className={`flex items-start justify-between gap-3 p-3.5 rounded border border-stone-200/60 dark:border-slate-800 bg-stone-100/10 dark:bg-slate-900/30 hover:bg-stone-100/20 dark:hover:bg-slate-900/60 transition-colors duration-300 hover:border-stone-350 dark:hover:border-slate-700 group/item ${
-                idx === CERTS.length - 1 && CERTS.length % 2 !== 0
-                  ? "md:col-span-2 md:mx-auto md:w-[calc(50%-6px)] w-full"
-                  : ""
-              }`}
-            >
-              <div className="flex gap-3">
-                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded bg-stone-100/40 dark:bg-slate-900/50 border border-stone-200 dark:border-slate-800 text-stone-400 dark:text-slate-400 group-hover/item:text-[var(--accent)] group-hover/item:border-[var(--accent)] dark:group-hover/item:text-[var(--accent)] dark:group-hover/item:border-[var(--accent)] transition-colors duration-300">
-                  <Award className="h-4 w-4" />
-                </div>
-                <div>
-                  <h3 className="text-xs font-bold text-stone-900 dark:text-slate-100 leading-snug group-hover/item:text-[var(--accent)] transition-colors">
-                    {cert.name}
-                  </h3>
-                  <p className="text-[10px] font-mono text-stone-400 dark:text-slate-400 mt-1">
-                    {cert.issuer} &middot; {cert.year}
-                  </p>
-                </div>
-              </div>
-
+            <div className="flex items-center gap-3 text-xs text-[var(--muted)] font-mono pl-6 sm:pl-0 shrink-0">
+              <span>{cert.issuer}</span>
+              <span className="opacity-40">·</span>
+              <span>{cert.year}</span>
               {cert.link && cert.link !== "#" && (
                 <a
                   href={cert.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-stone-400 hover:text-[var(--accent)] dark:text-slate-400 dark:hover:text-[var(--accent)] transition-colors flex-shrink-0 mt-0.5 group/link"
+                  className="text-[var(--foreground)] opacity-70 hover:opacity-100 transition-opacity"
                   title="Verify Certification"
                 >
-                  <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
+                  <ArrowUpRight className="h-3 w-3 inline ml-1" />
                 </a>
               )}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </div>
   );

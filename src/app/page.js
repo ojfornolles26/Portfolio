@@ -1,408 +1,249 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { flushSync } from "react-dom";
-import Image from "next/image";
-import { useTheme } from "next-themes";
+import { useEffect, useState, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Calendar, Mail, MapPin, Sun, Moon, ArrowUpRight } from "lucide-react";
-import { Github, Linkedin } from "@/components/icons";
+import { ArrowUpRight } from "lucide-react";
 
-// Components
-import StarfieldBackground from "@/components/StarfieldBackground";
 import { AboutCard, TechStackCard } from "@/components/About";
 import Projects from "@/components/Projects";
 import Certifications from "@/components/Certifications";
 import { ExperienceCard, EducationCard } from "@/components/Experience";
+import NoiseCanvas from "@/components/NoiseCanvas";
+import SplashScreen from "@/components/SplashScreen";
 
 export default function Home() {
-  const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const [showTooltip, setShowTooltip] = useState(false);
-  const [copiedEmail, setCopiedEmail] = useState(false);
-
-  const handleEmailClick = (e) => {
-    e.preventDefault();
-    const email = "orlandojr058@gmail.com";
-    try {
-      navigator.clipboard.writeText(email);
-      setCopiedEmail(true);
-      setTimeout(() => setCopiedEmail(false), 2000);
-      
-      // Also open local mail client for direct composition
-      window.location.href = `mailto:${email}?subject=Inquiry%20from%20Portfolio`;
-    } catch (err) {
-      console.error("Failed to copy email:", err);
-      window.location.href = `mailto:${email}?subject=Inquiry%20from%20Portfolio`;
-    }
-  };
-
-  const handleThemeToggle = (e) => {
-    const nextTheme = currentTheme === "dark" ? "light" : "dark";
-
-    if (
-      !document.startViewTransition ||
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    ) {
-      setTheme(nextTheme);
-      return;
-    }
-
-    const touch = e?.touches?.[0] || e?.changedTouches?.[0];
-    const clientX = e?.clientX ?? touch?.clientX;
-    const clientY = e?.clientY ?? touch?.clientY;
-
-    const x = typeof clientX === "number" && clientX > 0 ? clientX : window.innerWidth / 2;
-    const y = typeof clientY === "number" && clientY > 0 ? clientY : window.innerHeight / 2;
-    const endRadius = Math.hypot(
-      Math.max(x, window.innerWidth - x),
-      Math.max(y, window.innerHeight - y)
-    );
-
-    const docEl = document.documentElement;
-    docEl.style.setProperty("--x", `${x}px`);
-    docEl.style.setProperty("--y", `${y}px`);
-    docEl.style.setProperty("--r", `${endRadius}px`);
-
-    const transitionClass = nextTheme === "dark" ? "transition-to-dark" : "transition-to-light";
-    docEl.classList.add(transitionClass);
-
-    const transition = document.startViewTransition(() => {
-      flushSync(() => {
-        setTheme(nextTheme);
-      });
-      // Force DOM class update synchronously so the View Transitions API captures the correct theme colors
-      if (nextTheme === "dark") {
-        docEl.classList.add("dark");
-      } else {
-        docEl.classList.remove("dark");
-      }
-    });
-
-    transition.finished.finally(() => {
-      docEl.classList.remove(transitionClass);
-      docEl.style.removeProperty("--x");
-      docEl.style.removeProperty("--y");
-      docEl.style.removeProperty("--r");
-    });
-  };
+  const [showSplash, setShowSplash] = useState(true);
+  const [activeTab, setActiveTab] = useState("home");
+  const mainRef = useRef(null);
 
   useEffect(() => {
-    const handle = requestAnimationFrame(() => {
-      setMounted(true);
-    });
-    return () => cancelAnimationFrame(handle);
+    setMounted(true);
   }, []);
 
+  const handleTabChange = (tabId) => {
+    setActiveTab(tabId);
+    if (mainRef.current) {
+      mainRef.current.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
+  const navItems = [
+    { id: "home", label: "The Prelude" },
+    { id: "projects", label: "What I've Built" },
+    { id: "info", label: "My Journey" },
+    { id: "capabilities", label: "How I Build" },
+    { id: "experience", label: "Where I've Contributed" },
+    { id: "contact", label: "Let's Connect" },
+  ];
+
   if (!mounted) {
-    return (
-      <div className="min-h-screen bg-[var(--background)] transition-colors duration-500" />
-    );
+    return <div className="min-h-screen bg-[#111111]" />;
   }
 
-  const currentTheme = theme === "system" ? resolvedTheme : theme;
-
-  // Animation constants for structured loading
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.08,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 12 },
-    show: { 
-      opacity: 1, 
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15,
-      }
-    },
-  };
-
   return (
-    <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)] transition-colors duration-500 font-sans relative">
-      <StarfieldBackground />
-      <main className="max-w-4xl mx-auto px-4 py-8 md:py-16 flex flex-col gap-6 relative z-10">
+    <div className="h-screen w-screen overflow-hidden bg-[var(--background)] text-[var(--foreground)] font-mono relative selection:bg-stone-500/30 selection:text-[var(--accent)]">
+      {/* Animated Splash Screen */}
+      <AnimatePresence>
+        {showSplash && (
+          <SplashScreen onComplete={() => setShowSplash(false)} />
+        )}
+      </AnimatePresence>
+
+      {/* Background Noise Canvas */}
+      <NoiseCanvas />
+
+      {/* Viewport Frame Border Lines (p5aholic style) */}
+      <div className="fixed inset-3 md:inset-5 pointer-events-none z-40 border border-[var(--foreground)] opacity-15" />
+
+      {/* Main Grid Layout Container */}
+      <div className="h-full w-full p-6 md:p-12 flex flex-col md:flex-row justify-between gap-8 relative z-10">
         
-        {/* Minimalist Theme Toggle (Top Right) */}
-        <div className="absolute top-6 right-4 md:top-12 md:right-6 z-50">
-          <button
-            onClick={handleThemeToggle}
-            className="h-8 w-8 flex items-center justify-center rounded-md border border-stone-200 dark:border-slate-800 bg-[var(--card-bg)] text-stone-600 dark:text-slate-300 hover:text-stone-900 dark:hover:text-slate-100 transition-colors cursor-pointer shadow-[0_1px_2px_rgba(0,0,0,0.02)]"
-            aria-label="Toggle theme"
-          >
-            {currentTheme === "dark" ? (
-              <Sun className="h-4.5 w-4.5 text-sky-400" />
-            ) : (
-              <Moon className="h-4.5 w-4.5" />
-            )}
-          </button>
-        </div>
-
-        {/* Master Bento Grid */}
-        <motion.section 
-          variants={containerVariants}
-          initial="hidden"
-          animate="show"
-          className="grid grid-cols-1 md:grid-cols-6 gap-3 md:gap-4 pt-8"
-        >
+        {/* Left Fixed Sidebar Column */}
+        <aside className="md:w-80 shrink-0 flex flex-col justify-between h-full pt-2 pb-2 font-mono z-20">
           
-          {/* Cell 1: Profile Banner (6 cols) */}
-          <motion.div variants={itemVariants} className="col-span-1 md:col-span-6">
-            <div className="bento-card relative flex flex-col md:flex-row items-center md:items-start gap-6 h-full">
-              
-              {/* Profile Photo - Anime Form-Switching Transformation */}
-              <div className="relative w-28 h-28 md:w-32 md:h-32 rounded border border-stone-200 dark:border-slate-800 bg-stone-100/30 dark:bg-slate-900/30 overflow-hidden flex-shrink-0 shadow-[0_1px_2px_rgba(0,0,0,0.02)] group/photo">
-                <AnimatePresence mode="popLayout" initial={false}>
-                  <motion.div
-                    key={currentTheme}
-                    initial={{ 
-                      opacity: 0, 
-                      x: currentTheme === "dark" ? "15%" : "-15%", 
-                      scale: 1.12, 
-                      rotate: currentTheme === "dark" ? 3 : -3,
-                      filter: "blur(4px) brightness(1.2)"
-                    }}
-                    animate={{ 
-                      opacity: 1, 
-                      x: "0%", 
-                      scale: 1, 
-                      rotate: 0,
-                      filter: "blur(0px) brightness(1)"
-                    }}
-                    exit={{ 
-                      opacity: 0, 
-                      x: currentTheme === "dark" ? "-15%" : "15%", 
-                      scale: 0.92, 
-                      rotate: currentTheme === "dark" ? -3 : 3,
-                      filter: "blur(4px) brightness(0.85)"
-                    }}
-                    transition={{ 
-                      duration: 0.75, 
-                      ease: [0.16, 1, 0.3, 1] 
-                    }}
-                    className="absolute inset-0 w-full h-full"
-                  >
-                    <Image
-                      src={currentTheme === "dark" ? "/profile-dark.jpeg" : "/profile-light.jpeg"}
-                      alt="Orlando Fornolles Jr."
-                      fill
-                      priority
-                      className="object-cover object-center transition-transform duration-700 group-hover/photo:scale-105"
-                      sizes="(max-width: 768px) 112px, 128px"
-                    />
-                  </motion.div>
-                </AnimatePresence>
+          {/* Top: Brand Header & SPA Nav Menu */}
+          <div className="space-y-8">
+            
+            {/* Name Header */}
+            <div>
+              <h1 className="text-3xl md:text-5xl font-extralight tracking-tight leading-none text-[var(--foreground)]">
+                Orlando Jr.
+              </h1>
+              <p className="text-xs uppercase tracking-widest text-[var(--muted)] mt-2.5 font-mono">
+                Software Developer
+              </p>
+            </div>
 
-                {/* Anime Energy Slash Sweep */}
-                <motion.div
-                  key={`slash-${currentTheme}`}
-                  initial={{ x: "-120%", opacity: 0.9 }}
-                  animate={{ x: "120%", opacity: 0 }}
-                  transition={{ duration: 0.65, delay: 0.05, ease: "easeOut" }}
-                  className="absolute inset-0 pointer-events-none z-20 bg-gradient-to-r from-transparent via-cyan-400/35 to-transparent -skew-x-12"
-                />
-              </div>
-
-              {/* Info Details */}
-              <div className="flex-1 w-full min-w-0 flex flex-col justify-between h-full space-y-4 md:space-y-6 pt-1 text-center md:text-left">
-                <div className="space-y-2">
-                  <div className="flex items-center justify-center md:justify-start gap-2">
-                    <h1 className="text-2xl md:text-3xl font-bold tracking-tight font-serif text-stone-900 dark:text-slate-100">
-                      Orlando Fornolles Jr.
-                    </h1>
-                    
-                    {/* Verified Badge */}
-                    <div
-                      className="relative flex items-center justify-center"
-                      onMouseEnter={() => setShowTooltip(true)}
-                      onMouseLeave={() => setShowTooltip(false)}
-                      onTouchStart={() => setShowTooltip(prev => !prev)}
-                    >
-                      <svg
-                        viewBox="0 0 22 22"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4.5 w-4.5 text-sky-600 dark:text-sky-400 flex-shrink-0 cursor-pointer select-none"
-                        aria-label="Verified user"
+            {/* SPA Navigation Dot Menu (p5aholic exact behavior) */}
+            <nav className="pt-2">
+              <ul className="space-y-2.5 font-mono text-xs md:text-sm">
+                {navItems.map((item) => {
+                  const isActive = activeTab === item.id;
+                  return (
+                    <li key={item.id}>
+                      <button
+                        onClick={() => handleTabChange(item.id)}
+                        className="text-left cursor-pointer transition-all block w-full py-0.5"
+                        title={item.label}
                       >
-                        <path
-                          d="M20.396 11c-.018-.646-.215-1.275-.57-1.816-.354-.54-.852-.972-1.438-1.246.223-.607.27-1.264.14-1.897-.131-.634-.437-1.218-.882-1.687-.47-.445-1.053-.75-1.687-.882-.633-.13-1.29-.083-1.897.14-.273-.587-.704-1.086-1.245-1.44S11.647 1.62 11 1.604c-.646.017-1.273.213-1.813.568s-.969.854-1.24 1.44c-.608-.223-1.267-.272-1.902-.14-.635.13-1.22.436-1.69.882-.445.47-.749 1.055-.878 1.688-.13.633-.08 1.29.144 1.896-.587.274-1.087.705-1.443 1.245-.356.54-.555 1.17-.574 1.817.02.647.218 1.276.574 1.817.356.54.856.972 1.443 1.245-.224.606-.274 1.263-.144 1.896.13.634.433 1.218.877 1.688.47.443 1.054.747 1.687.878.633.132 1.29.084 1.897-.136.274.586.705 1.084 1.246 1.439.54.354 1.17.551 1.816.569.647-.016 1.276-.213 1.817-.567s.972-.854 1.245-1.44c.604.239 1.266.296 1.903.164.636-.132 1.22-.447 1.68-.907.46-.46.776-1.044.908-1.681s.075-1.299-.165-1.903c.586-.274 1.084-.705 1.439-1.246.354-.54.551-1.17.569-1.816zM9.662 14.85l-3.429-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246z"
-                          fill="currentColor"
-                        />
-                      </svg>
-
-                      <AnimatePresence>
-                        {showTooltip && (
-                          <motion.div
-                            initial={{ opacity: 0, y: 4, scale: 0.98 }}
-                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                            exit={{ opacity: 0, y: 4, scale: 0.98 }}
-                            transition={{ duration: 0.12, ease: "easeOut" }}
-                            className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-2.5 py-1 rounded bg-stone-900 dark:bg-slate-100 text-stone-100 dark:text-slate-950 text-[10px] font-mono tracking-wide shadow-md pointer-events-none z-50 select-none whitespace-nowrap"
-                          >
-                            Verified by Orlando himself
-                            <div className="absolute top-full left-1/2 -translate-x-1/2 border-[4px] border-transparent border-t-stone-900 dark:border-t-slate-100" />
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  </div>
-
-                  <p className="text-sm md:text-base font-mono font-semibold tracking-wide text-[var(--accent)] mt-1">
-                    Software Developer
-                  </p>
-                </div>
-
-                {/* Location Detail */}
-                <div className="flex items-center justify-center md:justify-start gap-1.5 text-xs text-stone-500 dark:text-slate-400 font-medium">
-                  <MapPin className="h-4 w-4 text-[var(--accent)]" />
-                  <span>Cebu City, Philippines</span>
-                </div>
-
-                {/* Primary CTA & Social Buttons Grid/Flex Container */}
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center md:justify-start gap-2 pt-3 w-full max-w-sm sm:max-w-lg mx-auto md:mx-0">
-                  
-                  {/* Primary actions row */}
-                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 flex-1 sm:flex-initial sm:flex-shrink-0">
-                    {/* Send Email (Primary Button - White text in light mode, dark text in dark mode) */}
-                    <button
-                      onClick={handleEmailClick}
-                      className="flex h-9 flex-shrink-0 items-center justify-center rounded bg-[var(--accent)] hover:bg-[var(--accent-hover)] px-4 text-xs font-bold text-white dark:text-slate-950 transition-colors gap-2 cursor-pointer shadow-[0_1px_2px_rgba(0,0,0,0.05)] w-full sm:w-auto min-w-[145px]"
-                    >
-                      <AnimatePresence mode="wait" initial={false}>
-                        {copiedEmail ? (
+                        {isActive ? (
                           <motion.span
-                            key="copied"
-                            initial={{ opacity: 0, y: -4 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 4 }}
-                            transition={{ duration: 0.15 }}
-                            className="flex items-center gap-2 font-bold"
+                            initial={{ scale: 0.5, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            transition={{ duration: 0.2 }}
+                            className="text-sm text-[var(--foreground)] font-bold inline-block"
                           >
-                            <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span>Email Copied</span>
+                            ●
                           </motion.span>
                         ) : (
-                          <motion.span
-                            key="send"
-                            initial={{ opacity: 0, y: -4 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 4 }}
-                            transition={{ duration: 0.15 }}
-                            className="flex items-center gap-2 font-bold"
-                          >
-                            <Mail className="h-3.5 w-3.5 flex-shrink-0" />
-                            <span>Send Email</span>
-                          </motion.span>
+                          <span className="text-[var(--muted)] hover:text-[var(--foreground)] opacity-70 hover:opacity-100 transition-opacity duration-200">
+                            {item.label}
+                          </span>
                         )}
-                      </AnimatePresence>
-                    </button>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </nav>
+          </div>
 
-                    {/* Schedule Meeting (Secondary Button) */}
-                    <a
-                      href="https://calendar.google.com/calendar/render?action=TEMPLATE&add=orlandojr058@gmail.com&text=Meeting%20with%20Orlando%20Fornolles%20Jr."
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex h-9 flex-shrink-0 items-center justify-center rounded border border-stone-300/80 dark:border-slate-800 bg-white/70 dark:bg-slate-900/40 text-xs font-bold text-stone-800 dark:text-slate-200 hover:bg-stone-100 dark:hover:bg-slate-800/60 dark:hover:border-slate-700 transition-colors gap-2 cursor-pointer w-full sm:w-auto px-4.5"
-                    >
-                      <Calendar className="h-3.5 w-3.5 flex-shrink-0 text-stone-600 dark:text-slate-300" />
-                      <span>Schedule a Session</span>
-                    </a>
-                  </div>
+          {/* Bottom: Copyright */}
+          <div className="pt-6 border-t border-[var(--foreground)]/15">
+            <div className="text-[10px] font-mono text-[var(--muted)] tracking-wider">
+              &copy; {new Date().getFullYear()} Orlando Jr. Fornolles
+            </div>
+          </div>
+        </aside>
 
-                  {/* Social links row: side-by-side full-width on mobile, square icons on desktop */}
-                  <div className="flex items-center gap-2 w-full sm:w-auto">
-                    <a
-                      href="https://www.linkedin.com/in/ojfornolles26"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex h-9 flex-1 sm:flex-initial sm:w-9 items-center justify-center rounded border border-stone-300/80 dark:border-slate-800 bg-white/70 dark:bg-slate-900/40 text-stone-700 dark:text-slate-300 hover:text-stone-950 dark:hover:text-slate-100 hover:bg-stone-100 dark:hover:bg-slate-800/60 dark:hover:border-slate-700 transition-colors cursor-pointer gap-2 sm:gap-0 sm:px-0"
-                      aria-label="LinkedIn Profile"
-                    >
-                      <Linkedin className="h-4 w-4 flex-shrink-0" />
-                      <span className="text-[10px] font-bold font-mono uppercase tracking-wider sm:hidden">LinkedIn</span>
-                    </a>
+        {/* Right Dynamic Content View Canvas */}
+        <main
+          ref={mainRef}
+          className="flex-1 h-full overflow-y-auto no-scrollbar pr-2 md:pr-8 pt-2 pb-24 max-w-3xl font-mono scroll-smooth"
+        >
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 10, filter: "blur(4px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              exit={{ opacity: 0, y: -10, filter: "blur(4px)" }}
+              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              className="w-full font-mono"
+            >
+              {/* HOME VIEW */}
+              {activeTab === "home" && (
+                <div className="space-y-12 py-4 font-mono">
+                  <div className="space-y-6">
+                    <p className="text-2xl md:text-4xl font-extralight leading-snug text-[var(--foreground)] tracking-tight font-mono">
+                      I build clean, focused web applications with React and modern web tools. Driven by good user experience, simple code, and continuous learning.
+                    </p>
 
-                    <a
-                      href="https://github.com/ojfornolles26"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex h-9 flex-1 sm:flex-initial sm:w-9 items-center justify-center rounded border border-stone-300/80 dark:border-slate-800 bg-white/70 dark:bg-slate-900/40 text-stone-700 dark:text-slate-300 hover:text-stone-950 dark:hover:text-slate-100 hover:bg-stone-100 dark:hover:bg-slate-800/60 dark:hover:border-slate-700 transition-colors cursor-pointer gap-2 sm:gap-0 sm:px-0"
-                      aria-label="GitHub Profile"
-                    >
-                      <Github className="h-4 w-4 flex-shrink-0" />
-                      <span className="text-[10px] font-bold font-mono uppercase tracking-wider sm:hidden">GitHub</span>
-                    </a>
+                    <p className="text-sm md:text-base text-[var(--muted)] leading-relaxed font-mono max-w-xl">
+                      Currently contributing as a Software Developer Intern at SugboDoc Technologies and AI Engineer Intern at FlyRank AI, while empowering a 150+ student developer community as COO of SWUdevs.
+                    </p>
                   </div>
                 </div>
-              </div>
+              )}
 
-            </div>
-          </motion.div>
+              {/* PROJECTS VIEW */}
+              {activeTab === "projects" && (
+                <div className="py-2 font-mono">
+                  <Projects />
+                </div>
+              )}
 
-          {/* Cell 3: About Card (6 cols) */}
-          <motion.div variants={itemVariants} className="col-span-1 md:col-span-6">
-            <AboutCard />
-          </motion.div>
+              {/* INFO VIEW (Profile & Education) */}
+              {activeTab === "info" && (
+                <div className="space-y-16 py-2 font-mono">
+                  <AboutCard />
+                  <EducationCard />
+                  <Certifications />
+                </div>
+              )}
 
-          {/* Cell 5: Experience Timeline (4 cols) */}
-          <motion.div variants={itemVariants} className="col-span-1 md:col-span-4">
-            <ExperienceCard />
-          </motion.div>
+              {/* CAPABILITIES VIEW */}
+              {activeTab === "capabilities" && (
+                <div className="py-2 editorial-section font-mono">
+                  <div className="editorial-header">How I Build</div>
+                  <div className="pt-2 font-mono">
+                    <TechStackCard />
+                  </div>
+                </div>
+              )}
 
-          {/* Right Column Stack: Tech Stack & Education (2 cols) */}
-          <motion.div variants={itemVariants} className="col-span-1 md:col-span-2 flex flex-col gap-3 md:gap-4">
-            <TechStackCard />
-            <EducationCard />
-          </motion.div>
+              {/* EXPERIENCE VIEW */}
+              {activeTab === "experience" && (
+                <div className="py-2 font-mono">
+                  <ExperienceCard />
+                </div>
+              )}
 
-          {/* Cell 7: Selected Projects (6 cols - Full Width) */}
-          <motion.div variants={itemVariants} className="col-span-1 md:col-span-6">
-            <Projects />
-          </motion.div>
+              {/* CONTACT VIEW */}
+              {activeTab === "contact" && (
+                <div className="py-6 space-y-8 font-mono">
+                  <div className="editorial-header font-mono">Let's Connect</div>
+                  <p className="text-xl md:text-2xl font-extralight leading-relaxed font-mono">
+                    Interested in building together, scheduling a chat, or exploring AI?
+                  </p>
 
-          {/* Cell 8: Certifications (6 cols - Full Width) */}
-          <motion.div variants={itemVariants} className="col-span-1 md:col-span-6">
-            <Certifications />
-          </motion.div>
+                  <div className="space-y-4 pt-4 font-mono text-sm">
+                    <div className="flex items-center gap-3">
+                      <span className="text-[var(--muted)] w-24">Email:</span>
+                      <a
+                        href="mailto:orlandojr058@gmail.com"
+                        className="underline underline-offset-4 hover:text-[var(--accent)] transition-colors"
+                      >
+                        orlandojr058@gmail.com
+                      </a>
+                    </div>
 
-        </motion.section>
+                    <div className="flex items-center gap-3">
+                      <span className="text-[var(--muted)] w-24">Calendar:</span>
+                      <a
+                        href="https://calendar.google.com/calendar/render?action=TEMPLATE&add=orlandojr058@gmail.com&text=Meeting%20with%20Orlando%20Fornolles%20Jr."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline underline-offset-4 hover:text-[var(--accent)] transition-colors flex items-center gap-1"
+                      >
+                        <span>Book Google Calendar Meeting</span>
+                        <ArrowUpRight className="h-3 w-3" />
+                      </a>
+                    </div>
 
-        {/* Footer */}
-        <footer className="mt-12 border-t border-stone-200/60 dark:border-stone-850 pt-6 pb-8 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-[10px] font-mono text-stone-400 dark:text-stone-500 uppercase tracking-widest text-center sm:text-left">
-          {/* Left Side: Copyright */}
-          <span>&copy; {new Date().getFullYear()} Orlando Fornolles Jr. &middot; Cebu City, PH</span>
+                    <div className="flex items-center gap-3">
+                      <span className="text-[var(--muted)] w-24">LinkedIn:</span>
+                      <a
+                        href="https://linkedin.com/in/ojfornolles26"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline underline-offset-4 hover:text-[var(--accent)] transition-colors flex items-center gap-1"
+                      >
+                        <span>linkedin.com/in/ojfornolles26</span>
+                        <ArrowUpRight className="h-3 w-3" />
+                      </a>
+                    </div>
 
-          {/* Right Side: Back to Top */}
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="group/foot flex items-center gap-1 hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer select-none font-bold"
-            aria-label="Scroll to top of the page"
-          >
-            <span>Back to Top</span>
-            <svg
-              className="h-3 w-3 text-stone-400 group-hover/foot:-translate-y-0.5 transition-transform duration-300"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2.5"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
-            </svg>
-          </button>
-        </footer>
+                    <div className="flex items-center gap-3">
+                      <span className="text-[var(--muted)] w-24">GitHub:</span>
+                      <a
+                        href="https://github.com/ojfornolles26"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline underline-offset-4 hover:text-[var(--accent)] transition-colors flex items-center gap-1"
+                      >
+                        <span>github.com/ojfornolles26</span>
+                        <ArrowUpRight className="h-3 w-3" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </motion.div>
+          </AnimatePresence>
+        </main>
 
-      </main>
+      </div>
     </div>
   );
 }
-

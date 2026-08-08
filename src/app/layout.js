@@ -17,9 +17,12 @@ const newsreader = Newsreader({
 });
 
 export const metadata = {
-  title: "Orlando Fornolles Jr. — Software Developer",
-  description: "An editorial-inspired, minimalist digital resume and portfolio for Orlando Fornolles Jr., showcasing clean frontend engineering, production-grade React and Next.js web applications, and modern component architecture.",
-  keywords: ["Orlando Fornolles Jr.", "Software Developer", "React Developer", "Next.js", "Front-End Engineer", "SWUdevs COO", "Portfolio", "Minimalist CV", "Cebu City", "React", "JavaScript", "Tailwind CSS", "Web Developer"],
+  title: "Orlando Jr. Fornolles",
+  description: "Personal portfolio of Orlando Jr., software developer interning at SugboDoc Technologies and FlyRank AI, and COO of SWUdevs.",
+  keywords: ["Orlando Jr.", "Orlando Fornolles Jr.", "Software Developer", "React", "Next.js", "SWUdevs", "FlyRank AI", "SugboDoc"],
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({ children }) {
