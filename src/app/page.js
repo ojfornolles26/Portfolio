@@ -257,7 +257,13 @@ export default function Home() {
 
         {/* Right Dynamic Content View Canvas (Mobile Single Page) */}
         <main className="md:hidden flex-1 w-full h-auto overflow-y-auto no-scrollbar pt-2 pb-16 font-mono scroll-smooth space-y-16">
-          <div className="space-y-8 py-2 font-mono">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5 }}
+            className="space-y-8 py-2 font-mono"
+          >
             <div className="space-y-4">
               <p className="text-xl font-extralight leading-snug text-[var(--foreground)] tracking-tight font-mono">
                 I build clean, focused web applications with React and modern web tools. Driven by good user experience, simple code, and continuous learning.
@@ -267,30 +273,60 @@ export default function Home() {
                 Currently contributing as a Software Developer Intern at SugboDoc Technologies and AI Engineer Intern at FlyRank AI, while empowering a 150+ student developer community as COO of SWUdevs.
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="py-2 font-mono">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5 }}
+            className="py-2 font-mono"
+          >
             <Projects />
-          </div>
+          </motion.div>
 
-          <div className="space-y-12 py-2 font-mono">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5 }}
+            className="space-y-12 py-2 font-mono"
+          >
             <AboutCard />
             <EducationCard />
             <Certifications />
-          </div>
+          </motion.div>
 
-          <div className="py-2 editorial-section font-mono">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5 }}
+            className="py-2 editorial-section font-mono"
+          >
             <div className="editorial-header">How I Build</div>
             <div className="pt-2 font-mono">
               <TechStackCard />
             </div>
-          </div>
+          </motion.div>
 
-          <div className="py-2 font-mono">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5 }}
+            className="py-2 font-mono"
+          >
             <ExperienceCard />
-          </div>
+          </motion.div>
 
-          <div className="py-4 space-y-6 font-mono">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5 }}
+            className="py-4 space-y-6 font-mono"
+          >
             <div className="editorial-header font-mono">Let&apos;s Connect</div>
             <p className="text-lg font-extralight leading-relaxed font-mono">
               Interested in building together, scheduling a chat, or exploring AI?
@@ -346,7 +382,7 @@ export default function Home() {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
           
           <div className="pt-8 border-t border-[var(--foreground)]/15 flex flex-col items-center gap-4">
             <button 
