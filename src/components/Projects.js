@@ -7,7 +7,7 @@ import { Github } from "./icons";
 const PROJECTS = [
   {
     title: "Filo",
-    subtitle: "2025 / React 19 / Privacy Document Workspace",
+    subtitle: "2026 / React 19 / Privacy Document Workspace",
     category: "Productivity",
     description:
       "React 19 document workspace & offline-first PWA with modular tools for batch format conversion (PNG, JPEG, WebP), high-DPI canvas cropping, local PDF audio reading, and offline text extraction. 100% client-side processing.",
@@ -17,7 +17,7 @@ const PROJECTS = [
   },
   {
     title: "Signity",
-    subtitle: "2025 / React / Digital Signature Engine",
+    subtitle: "2026 / React / Digital Signature Engine",
     category: "Utility",
     description:
       "Privacy-first React application for digital signatures with dual creator modes: hand-drawn signing via HTML5 Canvas with real-time useRef state sync, and typed calligraphy with dynamic font styling.",
@@ -27,7 +27,7 @@ const PROJECTS = [
   },
   {
     title: "Embraze",
-    subtitle: "2025 / React / Community Safety Map",
+    subtitle: "2026 / React / Community Safety Map",
     category: "Community Safety",
     description:
       "Community safety & hazard reporting application for Cebu with an interactive Leaflet map featuring z-index layering and opacity aging. Includes photo compression, thumbs voting, and dark/light theming.",
