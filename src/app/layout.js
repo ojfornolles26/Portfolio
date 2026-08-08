@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
       <body className="min-h-full bg-[var(--background)] text-[var(--foreground)] transition-colors duration-500">
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="dark"
           enableSystem={false}
         >
           {children}
