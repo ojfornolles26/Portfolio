@@ -5,7 +5,7 @@ export function middleware(request) {
   
   response.headers.set(
     'Content-Security-Policy',
-    "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data: https://ojworks.netlify.app; connect-src 'self' https:; frame-ancestors 'none'; base-uri 'self'; form-action 'self';"
+    "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data: https://ojworks.netlify.app; connect-src 'self' https: ws: wss:; frame-ancestors 'none'; base-uri 'self'; form-action 'self';"
   );
   
   response.headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
@@ -17,3 +17,12 @@ export function middleware(request) {
   
   return response;
 }
+
+export const config = {
+  matcher: [
+    /*
+     * Exclude Next.js internal routes from CSP middleware during dev & HMR:
+     */
+    '/((?!_next/static|_next/image|_next/webpack-hmr|icon.svg|favicon.ico).*)',
+  ],
+};
